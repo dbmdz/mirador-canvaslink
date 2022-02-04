@@ -24,7 +24,6 @@ const { dialogOpen } = options;
 const inputRef = useRef();
 const [quality, setQuality] = useState("default");
 const [rotation, setRotation] = useState(0);
-/*const [size, setSize] = useState(100); */
 const supportsClipboard = "clipboard" in navigator;
 //const imageUrl = `${currentCanvas.imageServiceIds[0]}/full/pct:${size}/${rotation}/${quality}.jpg`;
 const imageUrl = `${currentCanvas.id}/view`;

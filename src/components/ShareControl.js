@@ -41,7 +41,6 @@ ShareControl.propTypes = {
   }).isRequired,
   t: PropTypes.func.isRequired,
   updateOptions: PropTypes.func.isRequired,
-  //viewType: PropTypes.string.isRequired,
 };
 
 export default ShareControl;
