@@ -1,4 +1,3 @@
-
 import Mirador from "mirador/dist/es/src/index";
 
 import canvasLinkPlugin from "../../src";
