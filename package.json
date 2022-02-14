@@ -39,7 +39,7 @@
   "author": "",
   "homepage": "",
   "license": "MIT",
-  "repository": "",
+  "repository": "https://github.com/dbmdz/mirador-canvaslink",
   "keywords": [
     "react-component"
   ]
