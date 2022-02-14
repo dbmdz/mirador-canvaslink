@@ -6,7 +6,7 @@
 
 Adds a share plugin which opens a dialog for sharing links to envelope, facebook, pinterest, twitter and facebook.
 
-[build-badge]: https://img.shields.io/travis/user/repo/master.png?style=flat-square
+[mirador-badge]: https://img.shields.io/badge/Mirador-%E2%89%A53.3.0-blueviolet
 [mirador]: https://github.com/ProjectMirador/mirador/releases/tag/v3.3.0
 
 [npm-badge]: https://img.shields.io/npm/v/npm-package.png?style=flat-square
