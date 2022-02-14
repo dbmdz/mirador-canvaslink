@@ -2,7 +2,7 @@
 
 [![Travis][build-badge]][build]
 [![npm package][npm-badge]][npm]
-[![Coveralls][coveralls-badge]][coveralls]
+[![required Mirador version][mirador-badge]][mirador]
 
 Adds a share plugin which opens a dialog for sharing links to envelope, facebook, pinterest, twitter and facebook.
 
