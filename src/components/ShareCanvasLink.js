@@ -12,7 +12,6 @@ import Box from "@material-ui/core/Box";
 import PropTypes from "prop-types";
 import React, { useRef, useState } from "react";
 
-
 const ShareCanvasLink = ({
     currentCanvas,
     options,
@@ -25,10 +24,9 @@ const inputRef = useRef();
 const [quality, setQuality] = useState("default");
 const [rotation, setRotation] = useState(0);
 const supportsClipboard = "clipboard" in navigator;
-//const imageUrl = `${currentCanvas.imageServiceIds[0]}/full/pct:${size}/${rotation}/${quality}.jpg`;
-const imageUrl = `${currentCanvas.id}/view`;
+const imageUrl = `${currentCanvas?.id}/view`;
 const getPreviewUrl = (width) =>
-    `${currentCanvas.id}/full/${width},/${rotation}/${quality}.jpg`;
+    `${currentCanvas?.id}/full/${width},/${rotation}/${quality}.jpg`;
 const closeDialog = () =>
       updateOptions({
         ...options,
@@ -94,9 +92,6 @@ return (
 };
 
 ShareCanvasLink.PropTypes = {
-    // currentCanvas:PropTypes.shape({
-    //     imageServiceIds: PropTypes.arrayOf(PropTypes.string).isRequired,
-    // }).isRequired,
     currentCanvas: PropTypes.object.isRequired,
     options: PropTypes.shape({
       active: PropTypes.bool.isRequired,
@@ -108,7 +103,7 @@ ShareCanvasLink.PropTypes = {
 };
 
 ShareCanvasLink.defaultProps = {
-
+    currentCanvas: undefined,
 };
 
 export default ShareCanvasLink;

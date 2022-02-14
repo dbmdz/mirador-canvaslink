@@ -2,9 +2,6 @@ import { updateWindow } from "mirador/dist/es/src/state/actions";
 import {
   getContainerId,
   getCurrentCanvas,
-  getRequiredStatement,
-  getRights,
-  getWindowViewType,
 } from "mirador/dist/es/src/state/selectors";
 import translations from "./locales";
 import ShareCanvasLink from './components/ShareCanvasLink';
@@ -24,7 +21,7 @@ export default [
     mapStateToProps: (state, { windowId }) => ({
       containerId: getContainerId(state),
       options: getCanvasLinkOptions(state, { windowId }),
-     
+
     }),
     mode: "add",
     target: "WindowTopBarPluginArea",
@@ -48,4 +45,3 @@ export default [
   },
 
 ];
-
