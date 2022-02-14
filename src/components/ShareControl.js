@@ -16,7 +16,7 @@ const ShareControl = ({
       aria-expanded={active}
       aria-haspopup
       aria-label={
-        active ? t("imageCropper.deactivate") : t("imageCropper.activate")
+        active ? t("canvasLink.deactivate") : t("canvasLink.activate")
       }
       color={active ? "primary" : ""}
       containerId={containerId}

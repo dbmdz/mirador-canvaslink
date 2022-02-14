@@ -28,7 +28,7 @@ const supportsClipboard = "clipboard" in navigator;
 //const imageUrl = `${currentCanvas.imageServiceIds[0]}/full/pct:${size}/${rotation}/${quality}.jpg`;
 const imageUrl = `${currentCanvas.id}/view`;
 const getPreviewUrl = (width) =>
-    `${currentCanvas.imageServiceIds[0]}/full/${width},/${rotation}/${quality}.jpg`;
+    `${currentCanvas.id}/full/${width},/${rotation}/${quality}.jpg`;
 const closeDialog = () =>
       updateOptions({
         ...options,
@@ -36,7 +36,7 @@ const closeDialog = () =>
       });
 
 return (
-    <Dialog 
+    <Dialog
         fullWidth
         maxWidth="sm"
         scroll="paper"
@@ -94,10 +94,10 @@ return (
 };
 
 ShareCanvasLink.PropTypes = {
-    currentCanvas:PropTypes.shape({
-        imageServiceIds: PropTypes.arrayOf(PropTypes.string).isRequired,    
-    }).isRequired, 
-    //currentCanvas: PropTypes.object.isRequired,
+    // currentCanvas:PropTypes.shape({
+    //     imageServiceIds: PropTypes.arrayOf(PropTypes.string).isRequired,
+    // }).isRequired,
+    currentCanvas: PropTypes.object.isRequired,
     options: PropTypes.shape({
       active: PropTypes.bool.isRequired,
       enabled: PropTypes.bool.isRequired,

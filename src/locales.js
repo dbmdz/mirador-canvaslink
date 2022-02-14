@@ -1,8 +1,10 @@
 export default {
     de: {
-      canvasLink: {       
+      canvasLink: {
+        activate: "Aktivieren",
         closeDialog: "Schließen",
         copyToClipboard: "In die Zwischenablage kopieren",
+        deactivate: "Inaktivieren",
         share: {
           envelope: "Per Mail teilen",
           facebook: "Auf Facebook teilen",
@@ -15,8 +17,10 @@ export default {
     },
     en: {
       canvasLink: {
+        activate: "Activate",
         closeDialog: "Close",
         copyToClipboard: "Copy to clipboard",
+        deactivate: "Inactivate",
         share: {
           envelope: "Share via mail",
           facebook: "Share on Facebook",
@@ -28,4 +32,3 @@ export default {
       },
     },
   };
-  
