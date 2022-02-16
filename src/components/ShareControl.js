@@ -15,7 +15,6 @@ const ShareControl = ({
   }
   return (
     <MiradorMenuButton
-
       aria-haspopup
       aria-label={t("canvasLink.shareLink")}
       color="primary"
