@@ -35,7 +35,7 @@ const ShareControl = ({
 ShareControl.propTypes = {
   containerId: PropTypes.string.isRequired,
   options: PropTypes.shape({
-    //active: PropTypes.bool.isRequired,
+    dialogOpen: PropTypes.bool.isRequired,
     enabled: PropTypes.bool.isRequired,
   }).isRequired,
   t: PropTypes.func.isRequired,
