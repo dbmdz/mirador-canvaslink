@@ -101,6 +101,7 @@ return (
 ShareCanvasLink.PropTypes = {
     currentCanvas: PropTypes.object.isRequired,
     options: PropTypes.shape({
+      dialogOpen: PropTypes.bool.isRequired,
       enabled: PropTypes.bool.isRequired,
     }).isRequired,
     label: PropTypes.string.isRequired,
