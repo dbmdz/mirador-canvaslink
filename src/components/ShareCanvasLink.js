@@ -19,7 +19,7 @@ const ShareCanvasLink = ({
     t,
     updateOptions,
 }) => {
-const { dialogOpen } = options;
+const { dialogOpen, enabled } = options;
 const inputRef = useRef();
 const [quality, setQuality] = useState("default");
 const [rotation, setRotation] = useState(0);
@@ -27,6 +27,13 @@ const supportsClipboard = "clipboard" in navigator;
 const imageUrl = `${currentCanvas?.id}/view`;
 const getPreviewUrl = (width) =>
     `${currentCanvas?.id}/full/${width},/${rotation}/${quality}.jpg`;
+if (
+    !enabled ||
+    !dialogOpen ||
+    !currentCanvas
+) {
+    return null;
+}
 const closeDialog = () =>
       updateOptions({
         ...options,

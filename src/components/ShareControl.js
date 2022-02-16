@@ -1,4 +1,3 @@
-import CropIcon from "@material-ui/icons/Crop";
 import { MiradorMenuButton } from "mirador/dist/es/src/components/MiradorMenuButton";
 import PropTypes from "prop-types";
 import React from "react";
@@ -10,20 +9,20 @@ const ShareControl = ({
   t,
   updateOptions,
 }) => {
-  const { active, dialogOpen } = options;
+  const { dialogOpen, enabled } = options;
+  if (!enabled ) {
+      return null;
+  }
   return (
     <MiradorMenuButton
-      aria-expanded={active}
+
       aria-haspopup
-      aria-label={
-        active ? t("canvasLink.deactivate") : t("canvasLink.activate")
-      }
-      color={active ? "primary" : ""}
+      aria-label={t("canvasLink.shareLink")}
+      color="primary"
       containerId={containerId}
       onClick={() =>
         updateOptions({
           ...options,
-          active: !active,
           dialogOpen: !dialogOpen,
         })
       }
@@ -36,7 +35,7 @@ const ShareControl = ({
 ShareControl.propTypes = {
   containerId: PropTypes.string.isRequired,
   options: PropTypes.shape({
-    active: PropTypes.bool.isRequired,
+    //active: PropTypes.bool.isRequired,
     enabled: PropTypes.bool.isRequired,
   }).isRequired,
   t: PropTypes.func.isRequired,

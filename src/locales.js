@@ -1,7 +1,6 @@
 export default {
     de: {
       canvasLink: {
-        activate: "Aktivieren",
         closeDialog: "Schließen",
         copyToClipboard: "In die Zwischenablage kopieren",
         deactivate: "Inaktivieren",
@@ -17,7 +16,6 @@ export default {
     },
     en: {
       canvasLink: {
-        activate: "Activate",
         closeDialog: "Close",
         copyToClipboard: "Copy to clipboard",
         deactivate: "Inactivate",

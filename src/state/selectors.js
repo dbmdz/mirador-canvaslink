@@ -2,10 +2,10 @@ import { getWindowConfig } from "mirador/dist/es/src/state/selectors";
 import { createSelector } from "reselect";
 
 const defaultConfig = {
-  // Activate the image cropping overlay
-  active: false,
   // Open the settings dialog
   dialogOpen: false,
+  //Enable share plugin
+  enabled: true,
 };
 
 /** Selector to get text display options for a given window */
