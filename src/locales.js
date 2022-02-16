@@ -4,6 +4,7 @@ export default {
         closeDialog: "Schließen",
         copyToClipboard: "In die Zwischenablage kopieren",
         deactivate: "Inaktivieren",
+        openDialog: "Dialog öffnen",
         share: {
           envelope: "Per Mail teilen",
           facebook: "Auf Facebook teilen",
@@ -19,6 +20,7 @@ export default {
         closeDialog: "Close",
         copyToClipboard: "Copy to clipboard",
         deactivate: "Inactivate",
+        openDialog: "Open dialog",
         share: {
           envelope: "Share via mail",
           facebook: "Share on Facebook",

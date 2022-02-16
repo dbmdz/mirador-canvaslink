@@ -15,10 +15,8 @@ const ShareControl = ({
   }
   return (
     <MiradorMenuButton
-
-      aria-haspopup
-      aria-label={t("canvasLink.shareLink")}
-      color="primary"
+      aria-expanded={dialogOpen}
+      aria-label={t("canvasLink.openDialog")}
       containerId={containerId}
       onClick={() =>
         updateOptions({
