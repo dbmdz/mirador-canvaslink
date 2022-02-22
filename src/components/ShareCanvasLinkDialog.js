@@ -12,19 +12,17 @@ import React, { useRef } from "react";
 import CopyToClipboard from "./CopyToClipboard";
 import ShareButton from "./ShareButton";
 
+const supportsClipboard = "clipboard" in navigator;
+
 const ShareCanvasLinkDialog = ({
   currentCanvas,
-  options,
   label,
+  options,
   t,
   updateOptions,
 }) => {
   const { dialogOpen, enabled } = options;
   const inputRef = useRef();
-  const supportsClipboard = "clipboard" in navigator;
-  const imageUrl = `${currentCanvas?.id}/view`;
-  const getPreviewUrl = (width) =>
-    `${currentCanvas?.imageServiceIds[0]}/full/${width},/0/default.jpg`;
   if (!enabled || !dialogOpen || !currentCanvas) {
     return null;
   }
@@ -33,7 +31,9 @@ const ShareCanvasLinkDialog = ({
       ...options,
       dialogOpen: false,
     });
-
+  const imageUrl = `${currentCanvas?.id}/view`;
+  const getPreviewUrl = (width) =>
+    `${currentCanvas?.imageServiceIds[0]}/full/${width},/0/default.jpg`;
   return (
     <Dialog
       fullWidth
