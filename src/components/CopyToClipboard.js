@@ -18,7 +18,7 @@ const CopyToClipboard = ({ onCopy, supported, t }) => {
         <FileCopyIcon fontSize="small" />
       </MiradorMenuButton>
     </InputAdornment>
-  );  
+  );
 };
 
 CopyToClipboard.propTypes = {
