@@ -4,7 +4,7 @@ import {
   getCurrentCanvas,
 } from "mirador/dist/es/src/state/selectors";
 import translations from "./locales";
-import ShareCanvasLink from './components/ShareCanvasLink';
+import ShareCanvasLinkDialog from './components/ShareCanvasLinkDialog';
 import ShareControl from './components/ShareControl';
 import { getCanvasLinkOptions } from "./state/selectors";
 
@@ -27,7 +27,7 @@ export default [
     target: "WindowTopBarPluginArea",
   },
   {
-    component: ShareCanvasLink,
+    component: ShareCanvasLinkDialog,
     config: {
       translations,
     },

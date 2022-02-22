@@ -12,7 +12,7 @@ import Box from "@material-ui/core/Box";
 import PropTypes from "prop-types";
 import React, { useRef, useState } from "react";
 
-const ShareCanvasLink = ({
+const ShareCanvasLinkDialog = ({
     currentCanvas,
     options,
     label,
@@ -21,12 +21,10 @@ const ShareCanvasLink = ({
 }) => {
 const { dialogOpen, enabled } = options;
 const inputRef = useRef();
-const [quality, setQuality] = useState("default");
-const [rotation, setRotation] = useState(0);
 const supportsClipboard = "clipboard" in navigator;
 const imageUrl = `${currentCanvas?.id}/view`;
 const getPreviewUrl = (width) =>
-    `${currentCanvas?.id}/full/${width},/${rotation}/${quality}.jpg`;
+        `${currentCanvas?.imageServiceIds[0]}/full/${width},/0/default.jpg`;
 if (
     !enabled ||
     !dialogOpen ||
@@ -98,8 +96,10 @@ return (
 );
 };
 
-ShareCanvasLink.PropTypes = {
-    currentCanvas: PropTypes.object.isRequired,
+ShareCanvasLinkDialog.PropTypes = {
+    currentCanvas: PropTypes.shape({
+        imageServiceIds: PropTypes.arrayOf(PropTypes.string).isRequired,
+    }).isRequired,
     options: PropTypes.shape({
       dialogOpen: PropTypes.bool.isRequired,
       enabled: PropTypes.bool.isRequired,
@@ -109,8 +109,8 @@ ShareCanvasLink.PropTypes = {
     t: PropTypes.func.isRequired,
 };
 
-ShareCanvasLink.defaultProps = {
+ShareCanvasLinkDialog.defaultProps = {
     currentCanvas: undefined,
 };
 
-export default ShareCanvasLink;
+export default ShareCanvasLinkDialog;
