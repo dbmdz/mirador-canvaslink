@@ -7,7 +7,7 @@ import TextField from "@material-ui/core/TextField";
 import Typography from "@material-ui/core/Typography";
 import ScrollIndicatedDialogContent from "mirador/dist/es/src/containers/ScrollIndicatedDialogContent";
 import PropTypes from "prop-types";
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 
 import CopyToClipboard from "./CopyToClipboard";
 import ShareButton from "./ShareButton";
@@ -90,17 +90,18 @@ const ShareCanvasLinkDialog = ({
   );
 };
 
-ShareCanvasLinkDialog.PropTypes = {
+ShareCanvasLinkDialog.propTypes = {
   currentCanvas: PropTypes.shape({
+    id: PropTypes.string.isRequired,
     imageServiceIds: PropTypes.arrayOf(PropTypes.string).isRequired,
-  }).isRequired,
+  }),
+  label: PropTypes.string.isRequired,
   options: PropTypes.shape({
     dialogOpen: PropTypes.bool.isRequired,
     enabled: PropTypes.bool.isRequired,
   }).isRequired,
-  label: PropTypes.string.isRequired,
-  updateOptions: PropTypes.func.isRequired,
   t: PropTypes.func.isRequired,
+  updateOptions: PropTypes.func.isRequired,
 };
 
 ShareCanvasLinkDialog.defaultProps = {
