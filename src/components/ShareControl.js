@@ -1,17 +1,12 @@
+import ShareIcon from "@material-ui/icons/Share";
 import { MiradorMenuButton } from "mirador/dist/es/src/components/MiradorMenuButton";
 import PropTypes from "prop-types";
 import React from "react";
 
-import ShareIcon from "@material-ui/icons/Share";
-const ShareControl = ({
-  containerId,
-  options,
-  t,
-  updateOptions,
-}) => {
+const ShareControl = ({ containerId, options, t, updateOptions }) => {
   const { dialogOpen, enabled } = options;
-  if (!enabled ) {
-      return null;
+  if (!enabled) {
+    return null;
   }
   return (
     <MiradorMenuButton

@@ -22,11 +22,11 @@ const config = {
   ],
   id: "demo",
   window: {
-     canvasLink: {
-       active: true,
-       enabled: true,
-     },
-   },
+    canvasLink: {
+      active: true,
+      enabled: true,
+    },
+  },
   windows: [
     {
       canvasIndex: 8,

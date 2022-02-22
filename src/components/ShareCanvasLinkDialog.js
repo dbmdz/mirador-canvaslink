@@ -1,60 +1,54 @@
+import Box from "@material-ui/core/Box";
+import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
-import TextField from "@material-ui/core/TextField";
-import Typography from "@material-ui/core/Typography";
-import CopyToClipboard from "./CopyToClipboard";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogTitle from "@material-ui/core/DialogTitle";
-import ShareButton from "./ShareButton";
+import TextField from "@material-ui/core/TextField";
+import Typography from "@material-ui/core/Typography";
 import ScrollIndicatedDialogContent from "mirador/dist/es/src/containers/ScrollIndicatedDialogContent";
-import Button from "@material-ui/core/Button";
-import Box from "@material-ui/core/Box";
-
 import PropTypes from "prop-types";
 import React, { useRef, useState } from "react";
 
-const ShareCanvasLinkDialog = ({
-    currentCanvas,
-    options,
-    label,
-    t,
-    updateOptions,
-}) => {
-const { dialogOpen, enabled } = options;
-const inputRef = useRef();
-const supportsClipboard = "clipboard" in navigator;
-const imageUrl = `${currentCanvas?.id}/view`;
-const getPreviewUrl = (width) =>
-        `${currentCanvas?.imageServiceIds[0]}/full/${width},/0/default.jpg`;
-if (
-    !enabled ||
-    !dialogOpen ||
-    !currentCanvas
-) {
-    return null;
-}
-const closeDialog = () =>
-      updateOptions({
-        ...options,
-        dialogOpen: false,
-      });
+import CopyToClipboard from "./CopyToClipboard";
+import ShareButton from "./ShareButton";
 
-return (
+const ShareCanvasLinkDialog = ({
+  currentCanvas,
+  options,
+  label,
+  t,
+  updateOptions,
+}) => {
+  const { dialogOpen, enabled } = options;
+  const inputRef = useRef();
+  const supportsClipboard = "clipboard" in navigator;
+  const imageUrl = `${currentCanvas?.id}/view`;
+  const getPreviewUrl = (width) =>
+    `${currentCanvas?.imageServiceIds[0]}/full/${width},/0/default.jpg`;
+  if (!enabled || !dialogOpen || !currentCanvas) {
+    return null;
+  }
+  const closeDialog = () =>
+    updateOptions({
+      ...options,
+      dialogOpen: false,
+    });
+
+  return (
     <Dialog
-        fullWidth
-        maxWidth="sm"
-        scroll="paper"
-        open={dialogOpen}
-        onClose={closeDialog}
-  >
-    <DialogTitle disableTypography>
+      fullWidth
+      maxWidth="sm"
+      scroll="paper"
+      open={dialogOpen}
+      onClose={closeDialog}
+    >
+      <DialogTitle disableTypography>
         <Typography variant="h4">
-          <Box fontWeight="fontWeightBold">
-            {t("canvasLink.shareLink")}
-          </Box>
+          <Box fontWeight="fontWeightBold">{t("canvasLink.shareLink")}</Box>
         </Typography>
       </DialogTitle>
       <ScrollIndicatedDialogContent dividers>
-      <TextField
+        <TextField
           fullWidth
           InputProps={{
             endAdornment: (
@@ -74,8 +68,8 @@ return (
           value={imageUrl}
           variant="outlined"
         />
-        </ScrollIndicatedDialogContent>
-        <DialogActions>
+      </ScrollIndicatedDialogContent>
+      <DialogActions>
         {["envelope", "facebook", "pinterest", "twitter", "whatsapp"].map(
           (p) => (
             <ShareButton
@@ -92,25 +86,25 @@ return (
           {t("canvasLink.closeDialog")}
         </Button>
       </DialogActions>
-   </Dialog>
-);
+    </Dialog>
+  );
 };
 
 ShareCanvasLinkDialog.PropTypes = {
-    currentCanvas: PropTypes.shape({
-        imageServiceIds: PropTypes.arrayOf(PropTypes.string).isRequired,
-    }).isRequired,
-    options: PropTypes.shape({
-      dialogOpen: PropTypes.bool.isRequired,
-      enabled: PropTypes.bool.isRequired,
-    }).isRequired,
-    label: PropTypes.string.isRequired,
-    updateOptions: PropTypes.func.isRequired,
-    t: PropTypes.func.isRequired,
+  currentCanvas: PropTypes.shape({
+    imageServiceIds: PropTypes.arrayOf(PropTypes.string).isRequired,
+  }).isRequired,
+  options: PropTypes.shape({
+    dialogOpen: PropTypes.bool.isRequired,
+    enabled: PropTypes.bool.isRequired,
+  }).isRequired,
+  label: PropTypes.string.isRequired,
+  updateOptions: PropTypes.func.isRequired,
+  t: PropTypes.func.isRequired,
 };
 
 ShareCanvasLinkDialog.defaultProps = {
-    currentCanvas: undefined,
+  currentCanvas: undefined,
 };
 
 export default ShareCanvasLinkDialog;
