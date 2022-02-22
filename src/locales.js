@@ -24,7 +24,7 @@ export default {
           twitter: "Share on Twitter",
           whatsapp: "Share via WhatsApp",
         },
-        shareLink: "Share this page",
+        shareLink: "Share link to this page",
       },
     },
   };
