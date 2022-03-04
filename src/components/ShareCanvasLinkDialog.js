@@ -1,3 +1,4 @@
+import Alert from "@material-ui/lab/Alert";
 import Box from "@material-ui/core/Box";
 import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
@@ -7,9 +8,10 @@ import TextField from "@material-ui/core/TextField";
 import Typography from "@material-ui/core/Typography";
 import ScrollIndicatedDialogContent from "mirador/dist/es/src/containers/ScrollIndicatedDialogContent";
 import PropTypes from "prop-types";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 
 import CopyToClipboard from "./CopyToClipboard";
+import RightsInformation from "./RightsInformation";
 import ShareButton from "./ShareButton";
 
 const supportsClipboard = "clipboard" in navigator;
@@ -18,10 +20,12 @@ const ShareCanvasLinkDialog = ({
   currentCanvas,
   label,
   options,
+  rights,
   t,
   updateOptions,
 }) => {
-  const { dialogOpen, enabled } = options;
+  const { dialogOpen, enabled, showRightsInformation, } = options;
+  const [copiedToClipboard, setCopiedToClipboard] = useState(false);
   const inputRef = useRef();
   if (!enabled || !dialogOpen || !currentCanvas) {
     return null;
@@ -48,6 +52,16 @@ const ShareCanvasLinkDialog = ({
         </Typography>
       </DialogTitle>
       <ScrollIndicatedDialogContent dividers>
+        {copiedToClipboard && (
+            <Alert
+                className={alert}
+                closeText={t("canvasLink.close")}
+                onClose={() => setCopiedToClipboard(false)}
+                severity="success"
+            >
+              {t("canvasLink.copiedToClipboard")}
+            </Alert>
+        )}
         <TextField
           fullWidth
           InputProps={{
@@ -56,6 +70,8 @@ const ShareCanvasLinkDialog = ({
                 onCopy={() => {
                   inputRef?.current?.select();
                   navigator.clipboard.writeText(imageUrl);
+                  setCopiedToClipboard(true);
+                  setTimeout(() => setCopiedToClipboard(false), 3000);
                 }}
                 supported={supportsClipboard}
                 t={t}
@@ -68,6 +84,7 @@ const ShareCanvasLinkDialog = ({
           value={imageUrl}
           variant="outlined"
         />
+          {showRightsInformation && <RightsInformation t={t} rights={rights} />}
       </ScrollIndicatedDialogContent>
       <DialogActions>
         {["envelope", "facebook", "pinterest", "twitter", "whatsapp"].map(
@@ -83,7 +100,7 @@ const ShareCanvasLinkDialog = ({
         )}
         <div style={{ flex: "1 0 0" }} />
         <Button color="primary" onClick={closeDialog}>
-          {t("canvasLink.closeDialog")}
+          {t("canvasLink.close")}
         </Button>
       </DialogActions>
     </Dialog>

@@ -2,6 +2,7 @@ import { updateWindow } from "mirador/dist/es/src/state/actions";
 import {
   getContainerId,
   getCurrentCanvas,
+  getRights,
 } from "mirador/dist/es/src/state/selectors";
 
 import ShareCanvasLinkDialog from "./components/ShareCanvasLinkDialog";
@@ -39,6 +40,7 @@ export default [
       containerId: getContainerId(state),
       currentCanvas: getCurrentCanvas(state, { windowId }),
       options: getCanvasLinkOptions(state, { windowId }),
+      rights: getRights(state, { windowId }),
     }),
     mode: "add",
     target: "Window",
