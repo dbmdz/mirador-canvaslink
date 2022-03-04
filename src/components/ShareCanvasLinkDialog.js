@@ -1,4 +1,3 @@
-import Alert from "@material-ui/lab/Alert";
 import Box from "@material-ui/core/Box";
 import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
@@ -6,6 +5,7 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import TextField from "@material-ui/core/TextField";
 import Typography from "@material-ui/core/Typography";
+import Alert from "@material-ui/lab/Alert";
 import ScrollIndicatedDialogContent from "mirador/dist/es/src/containers/ScrollIndicatedDialogContent";
 import PropTypes from "prop-types";
 import React, { useRef, useState } from "react";
@@ -24,7 +24,7 @@ const ShareCanvasLinkDialog = ({
   t,
   updateOptions,
 }) => {
-  const { dialogOpen, enabled, showRightsInformation, } = options;
+  const { dialogOpen, enabled, showRightsInformation } = options;
   const [copiedToClipboard, setCopiedToClipboard] = useState(false);
   const inputRef = useRef();
   if (!enabled || !dialogOpen || !currentCanvas) {
@@ -53,14 +53,14 @@ const ShareCanvasLinkDialog = ({
       </DialogTitle>
       <ScrollIndicatedDialogContent dividers>
         {copiedToClipboard && (
-            <Alert
-                className={alert}
-                closeText={t("canvasLink.close")}
-                onClose={() => setCopiedToClipboard(false)}
-                severity="success"
-            >
-              {t("canvasLink.copiedToClipboard")}
-            </Alert>
+          <Alert
+            className={alert}
+            closeText={t("canvasLink.close")}
+            onClose={() => setCopiedToClipboard(false)}
+            severity="success"
+          >
+            {t("canvasLink.copiedToClipboard")}
+          </Alert>
         )}
         <TextField
           fullWidth
@@ -84,7 +84,7 @@ const ShareCanvasLinkDialog = ({
           value={imageUrl}
           variant="outlined"
         />
-          {showRightsInformation && <RightsInformation t={t} rights={rights} />}
+        {showRightsInformation && <RightsInformation t={t} rights={rights} />}
       </ScrollIndicatedDialogContent>
       <DialogActions>
         {["envelope", "facebook", "pinterest", "twitter", "whatsapp"].map(
@@ -116,13 +116,16 @@ ShareCanvasLinkDialog.propTypes = {
   options: PropTypes.shape({
     dialogOpen: PropTypes.bool.isRequired,
     enabled: PropTypes.bool.isRequired,
+    showRightsInformation: PropTypes.bool.isRequired,
   }).isRequired,
+  rights: PropTypes.arrayOf(PropTypes.string),
   t: PropTypes.func.isRequired,
   updateOptions: PropTypes.func.isRequired,
 };
 
 ShareCanvasLinkDialog.defaultProps = {
   currentCanvas: undefined,
+  rights: [],
 };
 
 export default ShareCanvasLinkDialog;
