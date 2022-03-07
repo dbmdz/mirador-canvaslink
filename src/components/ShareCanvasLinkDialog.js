@@ -3,17 +3,23 @@ import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogTitle from "@material-ui/core/DialogTitle";
+import makeStyles from "@material-ui/core/styles/makeStyles";
 import TextField from "@material-ui/core/TextField";
 import Typography from "@material-ui/core/Typography";
 import Alert from "@material-ui/lab/Alert";
 import ScrollIndicatedDialogContent from "mirador/dist/es/src/containers/ScrollIndicatedDialogContent";
 import PropTypes from "prop-types";
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 
 import CopyToClipboard from "./CopyToClipboard";
 import RightsInformation from "./RightsInformation";
 import ShareButton from "./ShareButton";
-import makeStyles from "@material-ui/core/styles/makeStyles";
+
+const useStyles = makeStyles((theme) => ({
+  alert: {
+    marginBottom: theme.spacing(1),
+  },
+}));
 
 const supportsClipboard = "clipboard" in navigator;
 
@@ -27,6 +33,8 @@ const ShareCanvasLinkDialog = ({
 }) => {
   const { dialogOpen, enabled, showRightsInformation } = options;
   const [copiedToClipboard, setCopiedToClipboard] = useState(false);
+  const { alert } = useStyles();
+
   if (!enabled || !dialogOpen || !currentCanvas) {
     return null;
   }
@@ -38,11 +46,7 @@ const ShareCanvasLinkDialog = ({
   const imageUrl = `${currentCanvas?.id}/view`;
   const getPreviewUrl = (width) =>
     `${currentCanvas?.imageServiceIds[0]}/full/${width},/0/default.jpg`;
-  const useStyles = makeStyles((theme) => ({
-    alert: {
-      marginBottom: theme.spacing(1),
-    },
-  }));
+
   return (
     <Dialog
       fullWidth
