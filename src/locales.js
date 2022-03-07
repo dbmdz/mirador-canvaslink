@@ -1,8 +1,11 @@
 export default {
   de: {
     canvasLink: {
-      closeDialog: "Schließen",
+      close: "Schließen",
+      copiedToClipboard: "Erfolgreich in die Zwischenablage kopiert",
       copyToClipboard: "In die Zwischenablage kopieren",
+      noteRights: "Bitte beachten Sie den Rechtehinweis",
+      noteRights_plural: "Bitte beachten Sie die Rechtehinweise",
       share: {
         envelope: "Per Mail teilen",
         facebook: "Auf Facebook teilen",
@@ -15,8 +18,11 @@ export default {
   },
   en: {
     canvasLink: {
-      closeDialog: "Close",
+      close: "Close",
+      copiedToClipboard: "Copied successfully to the clipboard",
       copyToClipboard: "Copy to clipboard",
+      noteRights: "Please note the rights statement",
+      noteRights_plural: "Please note the rights statements",
       share: {
         envelope: "Share via mail",
         facebook: "Share on Facebook",
