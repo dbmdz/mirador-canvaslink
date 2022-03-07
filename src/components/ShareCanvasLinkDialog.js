@@ -13,6 +13,7 @@ import React, { useRef, useState } from "react";
 import CopyToClipboard from "./CopyToClipboard";
 import RightsInformation from "./RightsInformation";
 import ShareButton from "./ShareButton";
+import makeStyles from "@material-ui/core/styles/makeStyles";
 
 const supportsClipboard = "clipboard" in navigator;
 
@@ -26,7 +27,6 @@ const ShareCanvasLinkDialog = ({
 }) => {
   const { dialogOpen, enabled, showRightsInformation } = options;
   const [copiedToClipboard, setCopiedToClipboard] = useState(false);
-  const inputRef = useRef();
   if (!enabled || !dialogOpen || !currentCanvas) {
     return null;
   }
@@ -38,6 +38,11 @@ const ShareCanvasLinkDialog = ({
   const imageUrl = `${currentCanvas?.id}/view`;
   const getPreviewUrl = (width) =>
     `${currentCanvas?.imageServiceIds[0]}/full/${width},/0/default.jpg`;
+  const useStyles = makeStyles((theme) => ({
+    alert: {
+      marginBottom: theme.spacing(1),
+    },
+  }));
   return (
     <Dialog
       fullWidth
@@ -68,7 +73,6 @@ const ShareCanvasLinkDialog = ({
             endAdornment: (
               <CopyToClipboard
                 onCopy={() => {
-                  inputRef?.current?.select();
                   navigator.clipboard.writeText(imageUrl);
                   setCopiedToClipboard(true);
                   setTimeout(() => setCopiedToClipboard(false), 3000);
@@ -79,7 +83,6 @@ const ShareCanvasLinkDialog = ({
             ),
             readOnly: true,
           }}
-          inputRef={inputRef}
           size="small"
           value={imageUrl}
           variant="outlined"
