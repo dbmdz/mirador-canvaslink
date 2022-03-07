@@ -3,10 +3,71 @@
 [![npm package][npm-badge]][npm]
 [![required Mirador version][mirador-badge]][mirador]
 
-Adds a share plugin which opens a dialog for sharing links to envelope, facebook, pinterest, twitter and facebook.
+A Mirador 3 plugin which adds a dialog for sharing links via mail or WhatsApp or to Facebook, Pinterest and Twitter.
 
-[mirador-badge]: https://img.shields.io/badge/Mirador-%E2%89%A53.3.0-blueviolet
+## Installation
+
+Currently the plugin can only be used if you build your own Mirador JavaScript bundle.
+To include the plugin in your Mirador installation, you need to install it
+from npm with `npm install mirador-canvaslink`, import it into your project
+and pass it to Mirador when you instantiate the viewer:
+
+```javascript
+import Mirador from 'mirador/dist/es/src/index';
+import canvasLinkPlugin from 'mirador-canvaslink/es';
+
+const miradorConfig = {
+  // Your Mirador configuration
+}
+Mirador.viewer(config, [...canvasLinkPlugin]);
+```
+
+## Configuration
+
+You can configure the plugin globally for all windows and/or individually for
+every window.
+
+For global configuration add the `canvasLink` entry to the top-level
+`window` configuration (globally for all windows) or to the individual window
+object:
+
+```javascript
+const miradorConfig = {
+  window: {
+    // ....
+    canvasLink: {
+      // Global options for all windows, see available settings below
+    },
+  },
+  windows: [{
+    // ....
+    canvasLink: {
+      // Options for an individual window, see available settings below
+    },
+  }, // ...
+}
+```
+
+You can view an example configuration in [demo/src/index.js][demo-cfg].
+
+The available configuration options are:
+
+- `dialogOpen`: If the share dialog is open. Boolean, defaults to `false`.
+- `enabled`: If the plugin is enabled. Boolean, defaults to `true`.
+- `showRightsInformation`: If rights information defined in the manifest should be shown. Boolean, defaults to `true`.
+
+## Contributing
+
+Found a bug? The plugin is not working with your manifest? Want a new
+feature? Create an issue, or if you want to take a shot at fixing it
+yourself, make a fork, create a pull request, we're always open to
+contributions :-)
+
+For larger changes/features, it's usually wise to open an issue before
+starting the work, so we can discuss if it's a fit.
+
+[demo-cfg]: https://github.com/dbmdz/mirador-canvaslink/blob/main/demo/src/index.js#L5-L38
 [mirador]: https://github.com/ProjectMirador/mirador/releases/tag/v3.3.0
-
-[npm-badge]: https://img.shields.io/npm/v/npm-package.png?style=flat-square
-[npm]: https://www.npmjs.org/package/npm-package
+[mirador-badge]: https://img.shields.io/badge/Mirador-%E2%89%A53.3.0-blueviolet
+[npm]: https://www.npmjs.org/package/mirador-canvaslink
+[npm-badge]: https://img.shields.io/npm/v/mirador-canvaslink.png?style=flat-square
