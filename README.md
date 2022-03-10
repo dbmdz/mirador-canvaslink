@@ -5,6 +5,8 @@
 
 A Mirador 3 plugin which adds a dialog for sharing links via mail or WhatsApp or to Facebook, Pinterest and Twitter.
 
+![Alt text](screenshot.png?raw=true "Optional Title")
+
 ## Installation
 
 Currently the plugin can only be used if you build your own Mirador JavaScript bundle.
