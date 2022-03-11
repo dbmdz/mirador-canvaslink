@@ -5,7 +5,7 @@
 
 A Mirador 3 plugin which adds a dialog for sharing links via mail or WhatsApp or to Facebook, Pinterest and Twitter.
 
-![Alt text](screenshot.png?raw=true "Optional Title")
+![Screenshot][screenshot]
 
 ## Installation
 
@@ -73,3 +73,4 @@ starting the work, so we can discuss if it's a fit.
 [mirador-badge]: https://img.shields.io/badge/Mirador-%E2%89%A53.3.0-blueviolet
 [npm]: https://www.npmjs.org/package/mirador-canvaslink
 [npm-badge]: https://img.shields.io/npm/v/mirador-canvaslink.png?style=flat-square
+[screenshot]: .docassets/screenshot.png
