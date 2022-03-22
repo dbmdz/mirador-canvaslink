@@ -3,9 +3,9 @@ import { MiradorMenuButton } from "mirador/dist/es/src/components/MiradorMenuBut
 import PropTypes from "prop-types";
 import React from "react";
 
-const ShareControl = ({ containerId, options, t, updateOptions }) => {
+const ShareControl = ({ containerId, options, t, updateOptions, viewType }) => {
   const { dialogOpen, enabled } = options;
-  if (!enabled) {
+  if (!enabled || viewType !== "single") {
     return null;
   }
   return (
@@ -33,6 +33,7 @@ ShareControl.propTypes = {
   }).isRequired,
   t: PropTypes.func.isRequired,
   updateOptions: PropTypes.func.isRequired,
+  viewType: PropTypes.string.isRequired,
 };
 
 export default ShareControl;
