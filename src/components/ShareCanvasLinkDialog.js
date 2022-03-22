@@ -32,7 +32,7 @@ const ShareCanvasLinkDialog = ({
   t,
   updateOptions,
 }) => {
-  const { dialogOpen, enabled, showRightsInformation } = options;
+  const { dialogOpen, enabled, showRightsInformation, getCanvasLink } = options;
   const [copiedToClipboard, setCopiedToClipboard] = useState(false);
   const { alert } = useStyles();
 
@@ -44,7 +44,7 @@ const ShareCanvasLinkDialog = ({
       ...options,
       dialogOpen: false,
     });
-  const canvasLink = options.getCanvasLink(manifestId, visibleCanvases);
+  const canvasLink = getCanvasLink(manifestId, visibleCanvases);
   const getPreviewUrl = (width) =>
     `${visibleCanvases[0]?.imageServiceIds[0]}/full/${width},/0/default.jpg`;
 
