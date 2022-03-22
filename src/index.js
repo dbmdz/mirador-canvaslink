@@ -43,6 +43,7 @@ export default [
       currentCanvas: getCurrentCanvas(state, { windowId }),
       options: getCanvasLinkOptions(state, { windowId }),
       rights: getRights(state, { windowId }),
+      viewType: getWindowViewType(state, { windowId }),
     }),
     mode: "add",
     target: "Window",

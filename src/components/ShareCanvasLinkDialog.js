@@ -30,12 +30,13 @@ const ShareCanvasLinkDialog = ({
   rights,
   t,
   updateOptions,
+  viewType,
 }) => {
   const { dialogOpen, enabled, showRightsInformation } = options;
   const [copiedToClipboard, setCopiedToClipboard] = useState(false);
   const { alert } = useStyles();
 
-  if (!enabled || !dialogOpen || !currentCanvas) {
+  if (!enabled || !dialogOpen || !currentCanvas || viewType !== "single") {
     return null;
   }
   const closeDialog = () =>
@@ -128,6 +129,7 @@ ShareCanvasLinkDialog.propTypes = {
   rights: PropTypes.arrayOf(PropTypes.string),
   t: PropTypes.func.isRequired,
   updateOptions: PropTypes.func.isRequired,
+  viewType: PropTypes.string.isRequired,
 };
 
 ShareCanvasLinkDialog.defaultProps = {
