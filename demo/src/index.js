@@ -25,6 +25,16 @@ const config = {
     canvasLink: {
       active: true,
       enabled: true,
+      singleCanvasOnly: false,
+      getCanvasLink: (manifestId, canvases) => {
+        const objectId = manifestId.split("/").slice(-2)[0];
+        const canvasIndices = canvases.map(
+          (canvas) => canvas.id.split("/").slice(-1)[0]
+        );
+        return `https://digitale-sammlungen.de/view/${objectId}?page=${canvasIndices.join(
+          ","
+        )}`;
+      },
     },
   },
   windows: [

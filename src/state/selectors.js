@@ -8,6 +8,8 @@ const defaultConfig = {
   enabled: true,
   // Show the rights information defined in the manifest
   showRightsInformation: true,
+  // Show only in single canvas view,
+  singleCanvasOnly: false,
 };
 
 /** Selector to get text display options for a given window */

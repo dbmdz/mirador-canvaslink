@@ -24,18 +24,19 @@ const useStyles = makeStyles((theme) => ({
 const supportsClipboard = "clipboard" in navigator;
 
 const ShareCanvasLinkDialog = ({
-  currentCanvas,
+  manifestId,
+  visibleCanvases,
   label,
   options,
   rights,
   t,
   updateOptions,
 }) => {
-  const { dialogOpen, enabled, showRightsInformation } = options;
+  const { dialogOpen, enabled, showRightsInformation, getCanvasLink } = options;
   const [copiedToClipboard, setCopiedToClipboard] = useState(false);
   const { alert } = useStyles();
 
-  if (!enabled || !dialogOpen || !currentCanvas) {
+  if (!enabled || !dialogOpen || visibleCanvases.length === 0) {
     return null;
   }
   const closeDialog = () =>
@@ -43,9 +44,9 @@ const ShareCanvasLinkDialog = ({
       ...options,
       dialogOpen: false,
     });
-  const imageUrl = `${currentCanvas?.id}/view`;
+  const canvasLink = getCanvasLink(manifestId, visibleCanvases);
   const getPreviewUrl = (width) =>
-    `${currentCanvas?.imageServiceIds[0]}/full/${width},/0/default.jpg`;
+    `${visibleCanvases[0]?.imageServiceIds[0]}/full/${width},/0/default.jpg`;
 
   return (
     <Dialog
@@ -77,7 +78,7 @@ const ShareCanvasLinkDialog = ({
             endAdornment: (
               <CopyToClipboard
                 onCopy={() => {
-                  navigator.clipboard.writeText(imageUrl);
+                  navigator.clipboard.writeText(canvasLink);
                   setCopiedToClipboard(true);
                   setTimeout(() => setCopiedToClipboard(false), 3000);
                 }}
@@ -88,7 +89,7 @@ const ShareCanvasLinkDialog = ({
             readOnly: true,
           }}
           size="small"
-          value={imageUrl}
+          value={canvasLink}
           variant="outlined"
         />
         {showRightsInformation && <RightsInformation t={t} rights={rights} />}
@@ -97,7 +98,7 @@ const ShareCanvasLinkDialog = ({
         {["envelope", "facebook", "pinterest", "twitter", "whatsapp"].map(
           (p) => (
             <ShareButton
-              imageUrl={imageUrl}
+              canvasLink={canvasLink}
               label={label}
               provider={p}
               thumbnailUrl={getPreviewUrl(250)}
@@ -115,15 +116,19 @@ const ShareCanvasLinkDialog = ({
 };
 
 ShareCanvasLinkDialog.propTypes = {
-  currentCanvas: PropTypes.shape({
-    id: PropTypes.string.isRequired,
-    imageServiceIds: PropTypes.arrayOf(PropTypes.string).isRequired,
-  }),
+  manifestId: PropTypes.string.isRequired,
+  visibleCanvases: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      imageServiceIds: PropTypes.arrayOf(PropTypes.string).isRequired,
+    })
+  ),
   label: PropTypes.string.isRequired,
   options: PropTypes.shape({
     dialogOpen: PropTypes.bool.isRequired,
     enabled: PropTypes.bool.isRequired,
     showRightsInformation: PropTypes.bool.isRequired,
+    getCanvasLink: PropTypes.func.isRequired,
   }).isRequired,
   rights: PropTypes.arrayOf(PropTypes.string),
   t: PropTypes.func.isRequired,
@@ -131,7 +136,7 @@ ShareCanvasLinkDialog.propTypes = {
 };
 
 ShareCanvasLinkDialog.defaultProps = {
-  currentCanvas: undefined,
+  visibleCanvases: [],
   rights: [],
 };
 

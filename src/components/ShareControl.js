@@ -3,9 +3,21 @@ import { MiradorMenuButton } from "mirador/dist/es/src/components/MiradorMenuBut
 import PropTypes from "prop-types";
 import React from "react";
 
-const ShareControl = ({ containerId, options, t, updateOptions }) => {
-  const { dialogOpen, enabled } = options;
-  if (!enabled) {
+const ShareControl = ({
+  containerId,
+  options,
+  t,
+  updateOptions,
+  windowViewType,
+}) => {
+  const { dialogOpen, enabled, singleCanvasOnly } = options;
+  if (
+    !enabled ||
+    // Only show in single canvas view if configured
+    (singleCanvasOnly && windowViewType !== "single") ||
+    // Never show in gallery view
+    windowViewType === "gallery"
+  ) {
     return null;
   }
   return (
@@ -30,9 +42,11 @@ ShareControl.propTypes = {
   options: PropTypes.shape({
     dialogOpen: PropTypes.bool.isRequired,
     enabled: PropTypes.bool.isRequired,
+    singleCanvasOnly: PropTypes.bool.isRequired,
   }).isRequired,
   t: PropTypes.func.isRequired,
   updateOptions: PropTypes.func.isRequired,
+  windowViewType: PropTypes.string.isRequired,
 };
 
 export default ShareControl;

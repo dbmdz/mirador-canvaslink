@@ -19,7 +19,7 @@ const iconMapping = {
 
 const ShareButton = ({
   attribution,
-  imageUrl,
+  canvasLink,
   label,
   provider,
   thumbnailUrl,
@@ -27,7 +27,7 @@ const ShareButton = ({
 }) => {
   const link = getShareLink(
     attribution,
-    imageUrl,
+    canvasLink,
     label,
     provider,
     thumbnailUrl
@@ -47,7 +47,7 @@ const ShareButton = ({
 
 ShareButton.propTypes = {
   attribution: PropTypes.string,
-  imageUrl: PropTypes.string.isRequired,
+  canvasLink: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   provider: PropTypes.string.isRequired,
   thumbnailUrl: PropTypes.string.isRequired,
