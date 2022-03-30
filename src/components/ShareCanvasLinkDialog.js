@@ -1,5 +1,6 @@
 import Box from "@material-ui/core/Box";
 import Button from "@material-ui/core/Button";
+import ButtonGroup from "@material-ui/core/ButtonGroup";
 import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogTitle from "@material-ui/core/DialogTitle";
@@ -16,6 +17,13 @@ import RightsInformation from "./RightsInformation";
 import ShareButton from "./ShareButton";
 
 const useStyles = makeStyles((theme) => ({
+  actions: {
+    justifyContent: "space-between",
+    flexWrap: "wrap",
+  },
+  actionButtons: {
+    flexWrap: "wrap",
+  },
   alert: {
     marginBottom: theme.spacing(1),
   },
@@ -34,7 +42,7 @@ const ShareCanvasLinkDialog = ({
 }) => {
   const { dialogOpen, enabled, showRightsInformation, getCanvasLink } = options;
   const [copiedToClipboard, setCopiedToClipboard] = useState(false);
-  const { alert } = useStyles();
+  const { actions, actionButtons, alert } = useStyles();
 
   if (!enabled || !dialogOpen || visibleCanvases.length === 0) {
     return null;
@@ -94,18 +102,20 @@ const ShareCanvasLinkDialog = ({
         />
         {showRightsInformation && <RightsInformation t={t} rights={rights} />}
       </ScrollIndicatedDialogContent>
-      <DialogActions>
-        {["envelope", "facebook", "pinterest", "twitter", "whatsapp"].map(
-          (p) => (
-            <ShareButton
-              canvasLink={canvasLink}
-              label={label}
-              provider={p}
-              thumbnailUrl={getPreviewUrl(250)}
-              title={t(`canvasLink.share.${p}`)}
-            />
-          )
-        )}
+      <DialogActions className={actions}>
+        <ButtonGroup className={actionButtons}>
+          {["envelope", "facebook", "pinterest", "twitter", "whatsapp"].map(
+            (p) => (
+              <ShareButton
+                canvasLink={canvasLink}
+                label={label}
+                provider={p}
+                thumbnailUrl={getPreviewUrl(250)}
+                title={t(`canvasLink.share.${p}`)}
+              />
+            )
+          )}
+        </ButtonGroup>
         <div style={{ flex: "1 0 0" }} />
         <Button color="primary" onClick={closeDialog}>
           {t("canvasLink.close")}
