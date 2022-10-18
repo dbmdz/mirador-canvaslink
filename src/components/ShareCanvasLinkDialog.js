@@ -32,6 +32,7 @@ const useStyles = makeStyles((theme) => ({
 const supportsClipboard = "clipboard" in navigator;
 
 const ShareCanvasLinkDialog = ({
+  containerId,
   manifestId,
   visibleCanvases,
   label,
@@ -39,6 +40,7 @@ const ShareCanvasLinkDialog = ({
   rights,
   t,
   updateOptions,
+  windowId,
 }) => {
   const { dialogOpen, enabled, showRightsInformation, getCanvasLink } = options;
   const [copiedToClipboard, setCopiedToClipboard] = useState(false);
@@ -58,6 +60,7 @@ const ShareCanvasLinkDialog = ({
 
   return (
     <Dialog
+      container={document.querySelector(`#${containerId} #${windowId}`)}
       fullWidth
       maxWidth="sm"
       scroll="paper"
@@ -126,6 +129,7 @@ const ShareCanvasLinkDialog = ({
 };
 
 ShareCanvasLinkDialog.propTypes = {
+  containerId: PropTypes.string.isRequired,
   manifestId: PropTypes.string.isRequired,
   visibleCanvases: PropTypes.arrayOf(
     PropTypes.shape({
@@ -143,6 +147,7 @@ ShareCanvasLinkDialog.propTypes = {
   rights: PropTypes.arrayOf(PropTypes.string),
   t: PropTypes.func.isRequired,
   updateOptions: PropTypes.func.isRequired,
+  windowId: PropTypes.string.isRequired,
 };
 
 ShareCanvasLinkDialog.defaultProps = {
