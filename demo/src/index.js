@@ -22,6 +22,7 @@ const config = {
   ],
   id: "demo",
   window: {
+    allowFullscreen: true,
     canvasLink: {
       active: true,
       enabled: true,
