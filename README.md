@@ -73,6 +73,8 @@ contributions :-)
 For larger changes/features, it's usually wise to open an issue before
 starting the work, so we can discuss if it's a fit.
 
+**Note**: As the package is requiring Node.js `16` and npm in major version `8`, the check for the `peerDependencies` versions is very strict what leads to conflicts with versions used in Mirador. A workaround for this is running `npm install --legacy-peer-deps`.
+
 [demo-cfg]: https://github.com/dbmdz/mirador-canvaslink/blob/main/demo/src/index.js#L5-L38
 [mirador]: https://github.com/ProjectMirador/mirador/releases/tag/v3.3.0
 [mirador-badge]: https://img.shields.io/badge/Mirador-%E2%89%A53.3.0-blueviolet
