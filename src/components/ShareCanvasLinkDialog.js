@@ -130,14 +130,8 @@ const ShareCanvasLinkDialog = ({
 
 ShareCanvasLinkDialog.propTypes = {
   containerId: PropTypes.string.isRequired,
-  manifestId: PropTypes.string.isRequired,
-  visibleCanvases: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      imageServiceIds: PropTypes.arrayOf(PropTypes.string).isRequired,
-    })
-  ),
   label: PropTypes.string.isRequired,
+  manifestId: PropTypes.string.isRequired,
   options: PropTypes.shape({
     dialogOpen: PropTypes.bool.isRequired,
     enabled: PropTypes.bool.isRequired,
@@ -147,12 +141,18 @@ ShareCanvasLinkDialog.propTypes = {
   rights: PropTypes.arrayOf(PropTypes.string),
   t: PropTypes.func.isRequired,
   updateOptions: PropTypes.func.isRequired,
+  visibleCanvases: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      imageServiceIds: PropTypes.arrayOf(PropTypes.string).isRequired,
+    })
+  ),
   windowId: PropTypes.string.isRequired,
 };
 
 ShareCanvasLinkDialog.defaultProps = {
-  visibleCanvases: [],
   rights: [],
+  visibleCanvases: [],
 };
 
 export default ShareCanvasLinkDialog;
