@@ -1,6 +1,6 @@
 export function getShareLink(
   attribution,
-  imageUrl,
+  canvasLink,
   label,
   provider,
   thumbnailUrl,
@@ -11,17 +11,17 @@ export function getShareLink(
   }
   switch (provider) {
     case "envelope":
-      return `mailto:?subject=${text}&body=${text}: ${imageUrl}`;
+      return `mailto:?subject=${text}&body=${text}: ${canvasLink}`;
     case "facebook":
-      return `https://www.facebook.com/sharer/sharer.php?title=${text}&u=${imageUrl}`;
+      return `https://www.facebook.com/sharer/sharer.php?title=${text}&u=${canvasLink}`;
     case "pinterest":
-      return `http://pinterest.com/pin/create/bookmarklet/?url=${imageUrl}&description=${text}&media=${thumbnailUrl}`;
+      return `http://pinterest.com/pin/create/bookmarklet/?url=${canvasLink}&description=${text}&media=${thumbnailUrl}`;
     case "twitter":
       return `https://twitter.com/intent/tweet?text=${
         text.length > 60 ? `${text.substring(0, 60)}...` : text
-      }&url=${imageUrl}&hashtags=iiif`;
+      }&url=${canvasLink}&hashtags=iiif`;
     case "whatsapp":
-      return `whatsapp://send?text=${text}: ${imageUrl}`;
+      return `whatsapp://send?text=${text}: ${canvasLink}`;
     default:
       return null;
   }
