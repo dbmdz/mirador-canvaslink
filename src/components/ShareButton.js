@@ -28,9 +28,9 @@ const ShareButton = ({
   const link = getShareLink(
     attribution,
     canvasLink,
+    label,
     provider,
     thumbnailUrl,
-    label
   );
   const ProviderIcon = iconMapping[provider];
   return (

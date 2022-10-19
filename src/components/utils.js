@@ -1,9 +1,9 @@
 export function getShareLink(
   attribution,
   imageUrl,
+  label,
   provider,
   thumbnailUrl,
-  label = ""
 ) {
   let text = label;
   if (attribution) {
