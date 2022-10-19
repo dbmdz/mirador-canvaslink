@@ -3,7 +3,7 @@ export function getShareLink(
   canvasLink,
   label,
   provider,
-  thumbnailUrl,
+  thumbnailUrl
 ) {
   let text = label;
   if (attribution) {
