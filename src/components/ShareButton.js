@@ -30,7 +30,7 @@ const ShareButton = ({
     canvasLink,
     label,
     provider,
-    thumbnailUrl,
+    thumbnailUrl
   );
   const ProviderIcon = iconMapping[provider];
   return (
