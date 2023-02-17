@@ -14,7 +14,7 @@
   "license": "MIT",
   "author": "Priya Manalil",
   "contributors": [
-    "Matthias Lindinger"
+    "Matthias Lindinger <matthias.lindinger@bsb-muenchen.de>"
   ],
   "main": "lib/index.js",
   "module": "es/index.js",
