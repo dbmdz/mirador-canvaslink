@@ -1,10 +1,10 @@
-export function getShareLink(
+const getShareLink = (
   attribution,
   canvasLink,
   label,
   provider,
   thumbnailUrl
-) {
+) => {
   let text = label;
   if (attribution) {
     text += ` (${attribution})`;
@@ -25,4 +25,6 @@ export function getShareLink(
     default:
       return null;
   }
-}
+};
+
+export { getShareLink };
