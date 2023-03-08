@@ -15,8 +15,8 @@ const defaultConfig = {
 /** Selector to get the plugin config for a given window */
 export const getPluginConfig = createSelector(
   [getWindowConfig],
-  ({ canvasLink }) => ({
+  ({ canvasLink = {} }) => ({
     ...defaultConfig,
-    ...(canvasLink ?? {}),
+    ...canvasLink,
   })
 );
