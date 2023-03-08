@@ -128,6 +128,12 @@ const ShareCanvasLinkDialog = ({
   );
 };
 
+ShareCanvasLinkDialog.defaultProps = {
+  label: "",
+  rights: [],
+  visibleCanvases: [],
+};
+
 ShareCanvasLinkDialog.propTypes = {
   config: PropTypes.shape({
     dialogOpen: PropTypes.bool.isRequired,
@@ -148,12 +154,6 @@ ShareCanvasLinkDialog.propTypes = {
     })
   ),
   windowId: PropTypes.string.isRequired,
-};
-
-ShareCanvasLinkDialog.defaultProps = {
-  label: "",
-  rights: [],
-  visibleCanvases: [],
 };
 
 export default ShareCanvasLinkDialog;
