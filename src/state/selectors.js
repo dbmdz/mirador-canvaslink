@@ -12,8 +12,8 @@ const defaultConfig = {
   singleCanvasOnly: false,
 };
 
-/** Selector to get text display options for a given window */
-export const getCanvasLinkOptions = createSelector(
+/** Selector to get the plugin config for a given window */
+export const getPluginConfig = createSelector(
   [getWindowConfig],
   ({ canvasLink }) => ({
     ...defaultConfig,

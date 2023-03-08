@@ -10,7 +10,7 @@ import {
 import ShareCanvasLinkDialog from "./components/ShareCanvasLinkDialog";
 import ShareControl from "./components/ShareControl";
 import translations from "./locales";
-import { getCanvasLinkOptions } from "./state/selectors";
+import { getPluginConfig } from "./state/selectors";
 
 export default [
   {
@@ -19,12 +19,12 @@ export default [
       translations,
     },
     mapDispatchToProps: (dispatch, { windowId }) => ({
-      updateOptions: (options) =>
-        dispatch(updateWindow(windowId, { canvasLink: options })),
+      updateConfig: (canvasLink) =>
+        dispatch(updateWindow(windowId, { canvasLink })),
     }),
     mapStateToProps: (state, { windowId }) => ({
       containerId: getContainerId(state),
-      options: getCanvasLinkOptions(state, { windowId }),
+      config: getPluginConfig(state, { windowId }),
       windowViewType: getWindowViewType(state, { windowId }),
     }),
     mode: "add",
@@ -36,14 +36,14 @@ export default [
       translations,
     },
     mapDispatchToProps: (dispatch, { windowId }) => ({
-      updateOptions: (options) =>
-        dispatch(updateWindow(windowId, { canvasLink: options })),
+      updateConfig: (canvasLink) =>
+        dispatch(updateWindow(windowId, { canvasLink })),
     }),
     mapStateToProps: (state, { windowId }) => ({
       containerId: getContainerId(state),
       manifestId: getWindowManifests(state, { windowId })[0],
       visibleCanvases: getVisibleCanvases(state, { windowId }),
-      options: getCanvasLinkOptions(state, { windowId }),
+      config: getPluginConfig(state, { windowId }),
       rights: getRights(state, { windowId }),
     }),
     mode: "add",

@@ -32,17 +32,17 @@ const useStyles = makeStyles((theme) => ({
 const supportsClipboard = "clipboard" in navigator;
 
 const ShareCanvasLinkDialog = ({
+  config,
   containerId,
   manifestId,
   visibleCanvases,
   label,
-  options,
   rights,
   t,
-  updateOptions,
+  updateConfig,
   windowId,
 }) => {
-  const { dialogOpen, enabled, showRightsInformation, getCanvasLink } = options;
+  const { dialogOpen, enabled, showRightsInformation, getCanvasLink } = config;
   const [copiedToClipboard, setCopiedToClipboard] = useState(false);
   const { actions, actionButtons, alert } = useStyles();
 
@@ -50,8 +50,8 @@ const ShareCanvasLinkDialog = ({
     return null;
   }
   const closeDialog = () =>
-    updateOptions({
-      ...options,
+    updateConfig({
+      ...config,
       dialogOpen: false,
     });
   const canvasLink = getCanvasLink(manifestId, visibleCanvases);
@@ -129,18 +129,18 @@ const ShareCanvasLinkDialog = ({
 };
 
 ShareCanvasLinkDialog.propTypes = {
-  containerId: PropTypes.string.isRequired,
-  label: PropTypes.string,
-  manifestId: PropTypes.string.isRequired,
-  options: PropTypes.shape({
+  config: PropTypes.shape({
     dialogOpen: PropTypes.bool.isRequired,
     enabled: PropTypes.bool.isRequired,
     showRightsInformation: PropTypes.bool.isRequired,
     getCanvasLink: PropTypes.func.isRequired,
   }).isRequired,
+  containerId: PropTypes.string.isRequired,
+  label: PropTypes.string,
+  manifestId: PropTypes.string.isRequired,
   rights: PropTypes.arrayOf(PropTypes.string),
   t: PropTypes.func.isRequired,
-  updateOptions: PropTypes.func.isRequired,
+  updateConfig: PropTypes.func.isRequired,
   visibleCanvases: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,

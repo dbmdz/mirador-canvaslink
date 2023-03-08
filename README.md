@@ -38,13 +38,13 @@ const miradorConfig = {
   window: {
     // ....
     canvasLink: {
-      // Global options for all windows, see available settings below
+      // Global config for all windows, see available settings below
     },
   },
   windows: [{
     // ....
     canvasLink: {
-      // Options for an individual window, see available settings below
+      // config for an individual window, see available settings below
     },
   }, // ...
 }
@@ -52,7 +52,7 @@ const miradorConfig = {
 
 You can view an example configuration in [demo/src/index.js][demo-cfg].
 
-The available configuration options are:
+The available settings are:
 
 - `getCanvasLink`: **Required**. A function that returns a link for the currently displayed canvases.
   Receives the identifier of the manifest as the first argument and an array of the currently displayed

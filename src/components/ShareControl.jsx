@@ -5,12 +5,12 @@ import React from "react";
 
 const ShareControl = ({
   containerId,
-  options,
+  config,
   t,
-  updateOptions,
+  updateConfig,
   windowViewType,
 }) => {
-  const { dialogOpen, enabled, singleCanvasOnly } = options;
+  const { dialogOpen, enabled, singleCanvasOnly } = config;
   if (
     !enabled ||
     // Only show in single canvas view if configured
@@ -26,8 +26,8 @@ const ShareControl = ({
       aria-label={t("canvasLink.shareLink")}
       containerId={containerId}
       onClick={() =>
-        updateOptions({
-          ...options,
+        updateConfig({
+          ...config,
           dialogOpen: !dialogOpen,
         })
       }
@@ -38,14 +38,14 @@ const ShareControl = ({
 };
 
 ShareControl.propTypes = {
-  containerId: PropTypes.string.isRequired,
-  options: PropTypes.shape({
+  config: PropTypes.shape({
     dialogOpen: PropTypes.bool.isRequired,
     enabled: PropTypes.bool.isRequired,
     singleCanvasOnly: PropTypes.bool.isRequired,
   }).isRequired,
+  containerId: PropTypes.string.isRequired,
   t: PropTypes.func.isRequired,
-  updateOptions: PropTypes.func.isRequired,
+  updateConfig: PropTypes.func.isRequired,
   windowViewType: PropTypes.string.isRequired,
 };
 
