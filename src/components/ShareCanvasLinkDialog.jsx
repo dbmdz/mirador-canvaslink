@@ -8,6 +8,7 @@ import makeStyles from "@material-ui/core/styles/makeStyles";
 import TextField from "@material-ui/core/TextField";
 import Typography from "@material-ui/core/Typography";
 import Alert from "@material-ui/lab/Alert";
+import ns from "mirador/dist/es/src/config/css-ns";
 import ScrollIndicatedDialogContent from "mirador/dist/es/src/containers/ScrollIndicatedDialogContent";
 import PropTypes from "prop-types";
 import React, { useState } from "react";
@@ -40,7 +41,6 @@ const ShareCanvasLinkDialog = ({
   rights,
   t,
   updateConfig,
-  windowId,
 }) => {
   const { dialogOpen, enabled, showRightsInformation, getCanvasLink } = config;
   const [copiedToClipboard, setCopiedToClipboard] = useState(false);
@@ -60,7 +60,7 @@ const ShareCanvasLinkDialog = ({
 
   return (
     <Dialog
-      container={document.querySelector(`#${containerId} #${windowId}`)}
+      container={document.querySelector(`#${containerId} .${ns("viewer")}`)}
       fullWidth
       maxWidth="sm"
       scroll="paper"
@@ -153,7 +153,6 @@ ShareCanvasLinkDialog.propTypes = {
       imageServiceIds: PropTypes.arrayOf(PropTypes.string).isRequired,
     })
   ),
-  windowId: PropTypes.string.isRequired,
 };
 
 export default ShareCanvasLinkDialog;
