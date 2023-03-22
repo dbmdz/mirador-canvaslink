@@ -1,3 +1,4 @@
+/** Constructs a share link for the given content and provider */
 const getShareLink = (
   attribution,
   canvasLink,
