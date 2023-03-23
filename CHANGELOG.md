@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 
 ## [Unreleased]
 
+## [0.2.3](https://github.com/dbmdz/mirador-canvaslink/releases/tag/0.2.3) - 2023-03-23
+
+### Fixed
+
+- Fixed display of dialog with multiple windows
+
 ## [0.2.2](https://github.com/dbmdz/mirador-canvaslink/releases/tag/0.2.2) - 2022-10-18
 
 ### Changed
