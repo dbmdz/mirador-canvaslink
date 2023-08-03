@@ -116,7 +116,7 @@ const ShareCanvasLinkDialog = ({
                 thumbnailUrl={getPreviewUrl(250)}
                 title={t(`canvasLink.share.${p}`)}
               />
-            )
+            ),
           )}
         </ButtonGroup>
         <div style={{ flex: "1 0 0" }} />
@@ -151,7 +151,7 @@ ShareCanvasLinkDialog.propTypes = {
     PropTypes.shape({
       id: PropTypes.string.isRequired,
       imageServiceIds: PropTypes.arrayOf(PropTypes.string).isRequired,
-    })
+    }),
   ),
 };
 
