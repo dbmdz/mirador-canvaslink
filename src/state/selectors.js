@@ -18,7 +18,7 @@ const getPluginConfig = createSelector(
   ({ canvasLink = {} }) => ({
     ...defaultConfig,
     ...canvasLink,
-  })
+  }),
 );
 
 export { getPluginConfig };
