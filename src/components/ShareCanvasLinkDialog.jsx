@@ -42,7 +42,7 @@ const ShareCanvasLinkDialog = ({
   t,
   updateConfig,
 }) => {
-  const { dialogOpen, enabled, showRightsInformation, getCanvasLink } = config;
+  const { dialogOpen, enabled, showRightsInformation, getCanvasLink, providers } = config;
   const [copiedToClipboard, setCopiedToClipboard] = useState(false);
   const { actions, actionButtons, alert } = useStyles();
 
@@ -107,7 +107,7 @@ const ShareCanvasLinkDialog = ({
       </ScrollIndicatedDialogContent>
       <DialogActions className={actions}>
         <ButtonGroup className={actionButtons}>
-          {["envelope", "facebook", "pinterest", "twitter", "whatsapp"].map(
+          {providers.map(
             (p) => (
               <ShareButton
                 canvasLink={canvasLink}
@@ -132,6 +132,9 @@ ShareCanvasLinkDialog.defaultProps = {
   label: "",
   rights: [],
   visibleCanvases: [],
+  config: {
+    providers: ["envelope", "facebook", "pinterest", "twitter", "whatsapp"],
+  },
 };
 
 ShareCanvasLinkDialog.propTypes = {
@@ -140,6 +143,7 @@ ShareCanvasLinkDialog.propTypes = {
     enabled: PropTypes.bool.isRequired,
     showRightsInformation: PropTypes.bool.isRequired,
     getCanvasLink: PropTypes.func.isRequired,
+    providers: PropTypes.arrayOf(PropTypes.string),
   }).isRequired,
   containerId: PropTypes.string.isRequired,
   label: PropTypes.string,
