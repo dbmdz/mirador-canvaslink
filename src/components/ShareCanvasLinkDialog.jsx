@@ -41,6 +41,7 @@ const ShareCanvasLinkDialog = ({
   rights,
   t,
   updateConfig,
+  windowViewType,
 }) => {
   const { dialogOpen, enabled, showRightsInformation, getCanvasLink } = config;
   const [copiedToClipboard, setCopiedToClipboard] = useState(false);
@@ -57,6 +58,7 @@ const ShareCanvasLinkDialog = ({
   const canvasLink = getCanvasLink({
     manifestId,
     visibleCanvases,
+    windowViewType,
   });
   const getPreviewUrl = (width) =>
     `${visibleCanvases[0]?.imageServiceIds[0]}/full/${width},/0/default.jpg`;
@@ -156,6 +158,7 @@ ShareCanvasLinkDialog.propTypes = {
       imageServiceIds: PropTypes.arrayOf(PropTypes.string).isRequired,
     }),
   ),
+  windowViewType: PropTypes.string.isRequired,
 };
 
 export default ShareCanvasLinkDialog;

@@ -60,6 +60,7 @@ The available settings are:
   {
     manifestId: ...,
     visibleCanvases: [...],
+    windowViewType: ...,
   }
   ```
   Must return a string.

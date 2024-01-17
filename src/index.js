@@ -45,6 +45,7 @@ export default [
       visibleCanvases: getVisibleCanvases(state, { windowId }),
       config: getPluginConfig(state, { windowId }),
       rights: getRights(state, { windowId }),
+      windowViewType: getWindowViewType(state, { windowId }),
     }),
     mode: "add",
     target: "Window",
