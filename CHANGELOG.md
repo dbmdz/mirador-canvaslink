@@ -6,6 +6,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 
 ## [Unreleased]
 
+### Changed
+
+- **Breaking**: Refactored the parameters of `getCanvasLink` to a map
+
 ## [0.2.3](https://github.com/dbmdz/mirador-canvaslink/releases/tag/0.2.3) - 2023-03-23
 
 ### Fixed

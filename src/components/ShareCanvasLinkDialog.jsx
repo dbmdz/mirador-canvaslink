@@ -54,7 +54,10 @@ const ShareCanvasLinkDialog = ({
       ...config,
       dialogOpen: false,
     });
-  const canvasLink = getCanvasLink(manifestId, visibleCanvases);
+  const canvasLink = getCanvasLink({
+    manifestId,
+    visibleCanvases,
+  });
   const getPreviewUrl = (width) =>
     `${visibleCanvases[0]?.imageServiceIds[0]}/full/${width},/0/default.jpg`;
 

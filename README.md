@@ -54,9 +54,15 @@ You can view an example configuration in [demo/src/index.js][demo-cfg].
 
 The available settings are:
 
-- `getCanvasLink`: **Required**. A function that returns a link for the currently displayed canvases.
-  Receives the identifier of the manifest as the first argument and an array of the currently displayed
-  canvas identifiers as the second argument. Must return a string.
+- `getCanvasLink`: **Required**. A function that returns a link for the currently visible canvases.
+  Receives this information about the current window:
+  ```
+  {
+    manifestId: ...,
+    visibleCanvases: [...],
+  }
+  ```
+  Must return a string.
 - `dialogOpen`: If the share dialog is open. Boolean, defaults to `false`.
 - `enabled`: If the plugin is enabled. Boolean, defaults to `true`.
 - `showRightsInformation`: If rights information defined in the manifest should be shown. Boolean, defaults to `true`.
