@@ -27,9 +27,9 @@ const config = {
       active: true,
       enabled: true,
       singleCanvasOnly: false,
-      getCanvasLink: (manifestId, canvases) => {
+      getCanvasLink: ({ manifestId, visibleCanvases }) => {
         const objectId = manifestId.split("/").slice(-2)[0];
-        const canvasIndices = canvases.map(
+        const canvasIndices = visibleCanvases.map(
           (canvas) => canvas.id.split("/").slice(-1)[0],
         );
         return `https://digitale-sammlungen.de/view/${objectId}?page=${canvasIndices.join(
