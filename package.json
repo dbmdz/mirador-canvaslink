@@ -1,6 +1,6 @@
 {
   "name": "mirador-canvaslink",
-  "version": "0.2.3",
+  "version": "0.3.0",
   "description": "Mirador 3 plugin to share image link through social media",
   "keywords": [
     "iiif",
