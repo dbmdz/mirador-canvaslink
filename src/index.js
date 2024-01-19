@@ -1,5 +1,6 @@
 import { updateWindow } from "mirador/dist/es/src/state/actions";
 import {
+  getCanvases,
   getContainerId,
   getRights,
   getVisibleCanvases,
@@ -40,6 +41,7 @@ export default [
         dispatch(updateWindow(windowId, { canvasLink })),
     }),
     mapStateToProps: (state, { windowId }) => ({
+      canvases: getCanvases(state, { windowId }),
       containerId: getContainerId(state),
       manifestId: getWindowManifests(state, { windowId })[0],
       visibleCanvases: getVisibleCanvases(state, { windowId }),

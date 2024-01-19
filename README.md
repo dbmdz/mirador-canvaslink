@@ -58,6 +58,7 @@ The available settings are:
   Receives this information about the current window:
   ```
   {
+    canvases: [...],
     manifestId: ...,
     visibleCanvases: [...],
     windowViewType: ...,

@@ -33,6 +33,7 @@ const useStyles = makeStyles((theme) => ({
 const supportsClipboard = "clipboard" in navigator;
 
 const ShareCanvasLinkDialog = ({
+  canvases,
   config,
   containerId,
   manifestId,
@@ -56,6 +57,7 @@ const ShareCanvasLinkDialog = ({
       dialogOpen: false,
     });
   const canvasLink = getCanvasLink({
+    canvases,
     manifestId,
     visibleCanvases,
     windowViewType,
@@ -134,12 +136,18 @@ const ShareCanvasLinkDialog = ({
 };
 
 ShareCanvasLinkDialog.defaultProps = {
+  canvases: [],
   label: "",
   rights: [],
   visibleCanvases: [],
 };
 
 ShareCanvasLinkDialog.propTypes = {
+  canvases: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+    }),
+  ),
   config: PropTypes.shape({
     dialogOpen: PropTypes.bool.isRequired,
     enabled: PropTypes.bool.isRequired,
