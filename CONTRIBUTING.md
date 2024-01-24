@@ -1,6 +1,16 @@
+# Contributing
+
+Found a bug? The plugin is not working with your manifest? Want a new
+feature? Create an issue, or if you want to take a shot at fixing it
+yourself, make a fork, create a pull request, we're always open to
+contributions :-)
+
+For larger changes/features, it's usually wise to open an issue before
+starting the work, so we can discuss if it's a fit.
+
 ## Prerequisites
 
-[Node.js](http://nodejs.org/) >= 16 must be installed.
+[npm](https://www.npmjs.com/package/npm) `>= 10` must be installed.
 
 ## Installation
 
