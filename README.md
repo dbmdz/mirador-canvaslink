@@ -71,18 +71,6 @@ The available settings are:
 - `singleCanvasOnly`: Set to true, if `getCanvasLink` can only generate links for a single canvas, this will
   disable the "Share" button in book view.
 
-## Contributing
-
-Found a bug? The plugin is not working with your manifest? Want a new
-feature? Create an issue, or if you want to take a shot at fixing it
-yourself, make a fork, create a pull request, we're always open to
-contributions :-)
-
-For larger changes/features, it's usually wise to open an issue before
-starting the work, so we can discuss if it's a fit.
-
-**Note**: The package requires Node.js `16` and npm in major version `8`.
-
 [demo-cfg]: https://github.com/dbmdz/mirador-canvaslink/blob/main/demo/src/index.js#L5-L38
 [mirador]: https://github.com/ProjectMirador/mirador/releases/tag/v3.3.0
 [mirador-badge]: https://img.shields.io/badge/Mirador-%E2%89%A53.3.0-blueviolet
