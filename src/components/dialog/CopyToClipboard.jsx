@@ -9,7 +9,7 @@ const CopyToClipboard = ({ onCopy, supported, t }) => {
     return null;
   }
   return (
-    <InputAdornment>
+    <InputAdornment position="end">
       <MiradorMenuButton
         aria-label={t("canvasLink.copyToClipboard")}
         edge="end"

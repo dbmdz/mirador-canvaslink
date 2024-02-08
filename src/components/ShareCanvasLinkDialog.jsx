@@ -118,6 +118,7 @@ const ShareCanvasLinkDialog = ({
             (p) => (
               <ShareButton
                 canvasLink={canvasLink}
+                key={p}
                 label={label}
                 provider={p}
                 thumbnailUrl={getPreviewUrl(250)}
