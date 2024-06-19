@@ -114,18 +114,16 @@ const ShareCanvasLinkDialog = ({
       </ScrollIndicatedDialogContent>
       <DialogActions className={actions}>
         <ButtonGroup className={actionButtons}>
-          {["envelope", "facebook", "pinterest", "twitter", "whatsapp"].map(
-            (p) => (
-              <ShareButton
-                canvasLink={canvasLink}
-                key={p}
-                label={label}
-                provider={p}
-                thumbnailUrl={getPreviewUrl(250)}
-                title={t(`canvasLink.share.${p}`)}
-              />
-            ),
-          )}
+          {["envelope", "facebook", "pinterest", "x", "whatsapp"].map((p) => (
+            <ShareButton
+              canvasLink={canvasLink}
+              key={p}
+              label={label}
+              provider={p}
+              thumbnailUrl={getPreviewUrl(250)}
+              title={t(`canvasLink.share.${p}`)}
+            />
+          ))}
         </ButtonGroup>
         <div style={{ flex: "1 0 0" }} />
         <Button color="primary" onClick={closeDialog}>
