@@ -6,6 +6,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 
 ## Unreleased
 
+## [0.3.3](https://github.com/dbmdz/mirador-canvaslink/releases/tag/0.3.3) - 2024-08-02
+
 ### Changed
 
 - Changed Twitter to X
