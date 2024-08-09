@@ -4,7 +4,7 @@ import {
   getContainerId,
   getRights,
   getVisibleCanvases,
-  getWindowManifests,
+  getWindow,
   getWindowViewType,
 } from "mirador/dist/es/src/state/selectors";
 
@@ -40,15 +40,20 @@ export default [
       updateConfig: (canvasLink) =>
         dispatch(updateWindow(windowId, { canvasLink })),
     }),
-    mapStateToProps: (state, { windowId }) => ({
-      canvases: getCanvases(state, { windowId }),
-      containerId: getContainerId(state),
-      manifestId: getWindowManifests(state, { windowId })[0],
-      visibleCanvases: getVisibleCanvases(state, { windowId }),
-      config: getPluginConfig(state, { windowId }),
-      rights: getRights(state, { windowId }),
-      windowViewType: getWindowViewType(state, { windowId }),
-    }),
+    mapStateToProps: (state, { windowId }) => {
+      const { manifestId, view: windowViewType } = getWindow(state, {
+        windowId,
+      });
+      return {
+        canvases: getCanvases(state, { windowId }),
+        containerId: getContainerId(state),
+        manifestId,
+        visibleCanvases: getVisibleCanvases(state, { windowId }),
+        config: getPluginConfig(state, { windowId }),
+        rights: getRights(state, { windowId }),
+        windowViewType,
+      };
+    },
     mode: "add",
     target: "Window",
   },
