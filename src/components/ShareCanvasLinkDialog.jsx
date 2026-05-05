@@ -6,7 +6,6 @@ import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogTitle from "@mui/material/DialogTitle";
 import TextField from "@mui/material/TextField";
-import Typography from "@mui/material/Typography";
 import { ScrollIndicatedDialogContent, useTranslation } from "mirador";
 import PropTypes from "prop-types";
 import { useState } from "react";
@@ -58,10 +57,10 @@ const ShareCanvasLinkDialog = ({
       open={dialogOpen}
       onClose={closeDialog}
     >
-      <DialogTitle disableTypography>
-        <Typography variant="h4">
-          <Box fontWeight="fontWeightBold">{t("canvasLink.shareLink")}</Box>
-        </Typography>
+      <DialogTitle>
+        <Box fontWeight="fontWeightBold" component="span">
+          {t("canvasLink.shareLink")}
+        </Box>
       </DialogTitle>
       <ScrollIndicatedDialogContent dividers>
         {copiedToClipboard && (
