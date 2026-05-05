@@ -1,7 +1,6 @@
 import react from "@vitejs/plugin-react";
 import { resolve } from "path";
 import { defineConfig, UserConfig } from "vite";
-import dts from "vite-plugin-dts";
 
 const buildMode = process.env.BUILD_MODE ?? "plugin";
 
@@ -26,7 +25,7 @@ const pluginConfig = {
       },
     },
   },
-  plugins: [react(), dts({ include: ["src"], exclude: "src/demo.js" })],
+  plugins: [react()],
   server: {
     open: true,
   },
