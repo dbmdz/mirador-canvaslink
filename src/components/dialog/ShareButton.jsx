@@ -4,7 +4,6 @@ import PinterestIcon from "@mui/icons-material/Pinterest";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import { MiradorMenuButton } from "mirador";
 import PropTypes from "prop-types";
-import React from "react";
 
 import XIcon from "../icons/XIcon";
 import { getShareLink } from "../utils";

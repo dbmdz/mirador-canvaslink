@@ -1,3 +1,4 @@
+import Alert from "@mui/material/Alert";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import ButtonGroup from "@mui/material/ButtonGroup";
@@ -6,11 +7,9 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogTitle from "@mui/material/DialogTitle";
 import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
-import Alert from "@mui/material/Alert";
-import { ScrollIndicatedDialogContent } from "mirador";
+import { ScrollIndicatedDialogContent, useTranslation } from "mirador";
 import PropTypes from "prop-types";
-import React, { useState } from "react";
-import { useTranslation } from "react-i18next";
+import { useState } from "react";
 
 import CopyToClipboard from "./dialog/CopyToClipboard";
 import RightsInformation from "./dialog/RightsInformation";

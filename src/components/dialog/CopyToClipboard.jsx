@@ -1,9 +1,7 @@
-import InputAdornment from "@mui/material/InputAdornment";
 import FileCopyIcon from "@mui/icons-material/FileCopy";
-import { MiradorMenuButton } from "mirador";
+import InputAdornment from "@mui/material/InputAdornment";
+import { MiradorMenuButton, useTranslation } from "mirador";
 import PropTypes from "prop-types";
-import React from "react";
-import { useTranslation } from "react-i18next";
 
 const CopyToClipboard = ({ onCopy, supported }) => {
   const { t } = useTranslation();

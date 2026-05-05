@@ -1,8 +1,7 @@
-import Link from "@mui/material/Link";
 import Alert from "@mui/material/Alert";
+import Link from "@mui/material/Link";
+import { useTranslation } from "mirador";
 import PropTypes from "prop-types";
-import React from "react";
-import { useTranslation } from "react-i18next";
 
 /** Renders the rights information defined in the used manifest */
 const RightsInformation = ({ rights }) => {

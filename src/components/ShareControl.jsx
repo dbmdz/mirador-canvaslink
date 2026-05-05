@@ -1,8 +1,6 @@
 import ShareIcon from "@mui/icons-material/Share";
-import { MiradorMenuButton } from "mirador";
+import { MiradorMenuButton, useTranslation } from "mirador";
 import PropTypes from "prop-types";
-import React from "react";
-import { useTranslation } from "react-i18next";
 
 const ShareControl = ({
   containerId,
