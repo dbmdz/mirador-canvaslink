@@ -1,67 +1,72 @@
 {
   "name": "mirador-canvaslink",
-  "version": "0.3.4",
-  "description": "Mirador 3 plugin to share image link through social media",
+  "version": "0.4.0",
+  "description": "Mirador 4 plugin to share image link through social media",
   "keywords": [
     "iiif",
     "mirador",
-    "mirador3",
+    "mirador4",
     "mirador-plugin",
     "react-component"
   ],
-  "homepage": "",
-  "repository": "https://github.com/dbmdz/mirador-canvaslink",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dbmdz/mirador-canvaslink.git"
+  },
   "license": "MIT",
   "author": "Priya Manalil",
   "contributors": [
     "Matthias Lindinger <matthias.lindinger@bsb-muenchen.de>"
   ],
-  "main": "lib/index.js",
+  "main": "dist/index.js",
   "module": "es/index.js",
   "files": [
-    "css",
-    "es",
-    "lib",
-    "umd"
+    "dist"
   ],
   "scripts": {
-    "build": "nwb build-react-component",
-    "clean": "nwb clean-module && nwb clean-demo",
-    "format": "eslint --fix ./demo/src ./src",
-    "lint": "eslint ./demo/src ./src",
+    "build": "npm run build:demo && npm run build:plugin",
+    "prebuild:demo": "rimraf demo/dist",
+    "build:demo": "BUILD_MODE=demo vite build",
+    "prebuild:plugin": "rimraf dist",
+    "build:plugin": "vite build",
+    "format": "eslint . --ext js,jsx,ts,tsx --fix --max-warnings 0 --report-unused-disable-directives",
+    "lint": "eslint . --ext js,jsx,ts,tsx --max-warnings 0 --report-unused-disable-directives",
     "prepublishOnly": "npm run build",
-    "start": "nwb serve-react-demo",
-    "test": "nwb test-react",
-    "test:coverage": "nwb test-react --coverage",
-    "test:watch": "nwb test-react --server"
+    "prepreview": "npm run build:demo",
+    "preview": "BUILD_MODE=demo vite preview",
+    "start": "vite"
   },
   "devDependencies": {
-    "eslint": "^8.57.0",
-    "eslint-config-airbnb": "^19.0.4",
-    "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-import": "^2.29.1",
-    "eslint-plugin-jsx-a11y": "^6.10.0",
-    "eslint-plugin-prettier": "^5.2.1",
-    "eslint-plugin-react": "^7.35.0",
-    "eslint-plugin-react-hooks": "^4.6.2",
+    "@vitejs/plugin-react": "^6.0.1",
+    "eslint": "^9.39.4",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-prettier": "^5.5.5",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-simple-import-sort": "^12.1.1",
-    "mirador": "^3.3.0",
-    "nwb": "^0.25.2",
-    "prettier": "^3.3.3",
-    "react": "^16.14.0",
-    "react-dom": "^16.14.0"
+    "mirador": "^4.0.0",
+    "prettier": "^3.8.3",
+    "react": "^19.2.5",
+    "react-dom": "^19.2.5",
+    "vite": "^8.0.10",
+    "vite-plugin-dts": "^4.5.4"
   },
   "peerDependencies": {
-    "@material-ui/core": "4.x",
-    "@material-ui/icons": "4.x",
-    "@material-ui/lab": "^4.0.0-alpha.61",
-    "mirador": "3.x",
+    "@mui/icons-material": "^7.0.0",
+    "@mui/lab": "^7.0.1-beta.24",
+    "@mui/material": "^7.0.0",
+    "mirador": "4.x",
     "prop-types": "15.x",
-    "react": "16.x",
-    "react-dom": "16.x",
-    "reselect": "4.x"
+    "react": "19.x",
+    "react-dom": "19.x",
+    "reselect": "5.1.1"
   },
   "engines": {
-    "npm": ">=8.0.0"
+    "npm": ">=11.0.0"
+  },
+  "dependencies": {
+    "@mui/styles": "^6.5.0"
   }
 }

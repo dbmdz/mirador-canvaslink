@@ -3,7 +3,7 @@
 [![npm package][npm-badge]][npm]
 [![required Mirador version][mirador-badge]][mirador]
 
-A Mirador 3 plugin which adds a dialog for sharing links via mail or WhatsApp or to Facebook, Pinterest and Twitter.
+A Mirador 4 plugin which adds a dialog for sharing links via mail or WhatsApp or to Facebook, Pinterest and Twitter.
 
 ![Screenshot][screenshot]
 

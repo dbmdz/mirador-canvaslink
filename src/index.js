@@ -1,4 +1,4 @@
-import { updateWindow } from "mirador/dist/es/src/state/actions";
+import { updateWindow } from "mirador";
 import {
   getCanvases,
   getContainerId,
@@ -6,7 +6,7 @@ import {
   getVisibleCanvases,
   getWindow,
   getWindowViewType,
-} from "mirador/dist/es/src/state/selectors";
+} from "mirador";
 
 import ShareCanvasLinkDialog from "./components/ShareCanvasLinkDialog";
 import ShareControl from "./components/ShareControl";
