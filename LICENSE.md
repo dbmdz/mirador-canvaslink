@@ -1,6 +1,6 @@
 # The MIT License (MIT)
 
-Copyright © 2022-2023 Open Source at the Bayerische Staatsbibliothek
+Copyright © 2022-2026 Bavarian State Library/Munich Digitization Centre
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
