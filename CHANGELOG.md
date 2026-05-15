@@ -8,7 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/) 
 
 ### Changed
 
-- Updated plugin to Mirador 4/MUI v7/React 19 
+- **Breaking**: Upgrade to Mirador 4
 - Changed build system to vite
 
 ## [0.3.4](https://github.com/dbmdz/mirador-canvaslink/releases/tag/0.3.4) - 2024-08-13
