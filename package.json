@@ -35,9 +35,6 @@
     "preview": "BUILD_MODE=demo vite preview",
     "start": "vite"
   },
-  "dependencies": {
-    "@mui/styles": "^6.5.0"
-  },
   "devDependencies": {
     "@eslint/compat": "^2.0.5",
     "@eslint/eslintrc": "^3.3.5",
