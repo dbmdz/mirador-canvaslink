@@ -1,4 +1,3 @@
-import { updateWindow } from "mirador";
 import {
   getCanvases,
   getContainerId,
@@ -6,6 +5,7 @@ import {
   getVisibleCanvases,
   getWindow,
   getWindowViewType,
+  updateWindow,
 } from "mirador";
 
 import ShareCanvasLinkDialog from "./components/ShareCanvasLinkDialog";
