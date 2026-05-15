@@ -3,8 +3,8 @@ import { MiradorMenuButton } from "mirador";
 import PropTypes from "prop-types";
 import { useTranslation } from "react-i18next";
 
-const ShareControl = ({ config, updateConfig, windowViewType }) => {
-  const { dialogOpen, enabled, singleCanvasOnly } = config || {};
+const ShareControl = ({ config = {}, updateConfig, windowViewType }) => {
+  const { dialogOpen, enabled, singleCanvasOnly } = config;
   const { t } = useTranslation();
   if (
     !enabled ||
