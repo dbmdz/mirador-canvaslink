@@ -19,7 +19,6 @@
     "Matthias Lindinger <matthias.lindinger@bsb-muenchen.de>"
   ],
   "main": "dist/index.js",
-  "module": "es/index.js",
   "files": [
     "dist"
   ],
@@ -35,6 +34,9 @@
     "prepreview": "npm run build:demo",
     "preview": "BUILD_MODE=demo vite preview",
     "start": "vite"
+  },
+  "dependencies": {
+    "@mui/styles": "^6.5.0"
   },
   "devDependencies": {
     "@eslint/compat": "^2.0.5",
@@ -71,8 +73,5 @@
   },
   "engines": {
     "npm": ">=11.0.0"
-  },
-  "dependencies": {
-    "@mui/styles": "^6.5.0"
   }
 }
