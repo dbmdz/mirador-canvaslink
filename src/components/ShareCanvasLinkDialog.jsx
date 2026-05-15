@@ -58,10 +58,8 @@ const ShareCanvasLinkDialog = ({
       open={dialogOpen}
       onClose={closeDialog}
     >
-      <DialogTitle>
-        <Box fontWeight="fontWeightBold" component="span">
-          {t("canvasLink.shareLink")}
-        </Box>
+      <DialogTitle component="h4">
+        <Box fontWeight="fontWeightBold">{t("canvasLink.shareLink")}</Box>
       </DialogTitle>
       <ScrollIndicatedDialogContent dividers>
         {copiedToClipboard && (
