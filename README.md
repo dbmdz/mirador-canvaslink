@@ -15,8 +15,8 @@ from npm with `npm install mirador-canvaslink`, import it into your project
 and pass it to Mirador when you instantiate the viewer:
 
 ```javascript
-import Mirador from 'mirador/dist/es/src/index';
-import canvasLinkPlugin from 'mirador-canvaslink/es';
+import Mirador from 'mirador';
+import canvasLinkPlugin from 'mirador-canvaslink';
 
 const miradorConfig = {
   // Your Mirador configuration
@@ -81,11 +81,11 @@ contributions :-)
 For larger changes/features, it's usually wise to open an issue before
 starting the work, so we can discuss if it's a fit.
 
-**Note**: The package requires Node.js `16` and npm in major version `8`.
+**Note**: The package requires Node.js `24` and npm in major version `11`.
 
-[demo-cfg]: https://github.com/dbmdz/mirador-canvaslink/blob/main/demo/src/index.js#L5-L38
-[mirador]: https://github.com/ProjectMirador/mirador/releases/tag/v3.3.0
-[mirador-badge]: https://img.shields.io/badge/Mirador-%E2%89%A53.3.0-blueviolet
+[demo-cfg]: https://github.com/dbmdz/mirador-canvaslink/blob/main/src/demo.js#L5-L38
+[mirador]: https://github.com/ProjectMirador/mirador/releases/tag/v4.0.0
+[mirador-badge]: https://img.shields.io/badge/Mirador-%E2%89%A54.0.0-blueviolet
 [npm]: https://www.npmjs.org/package/mirador-canvaslink
 [npm-badge]: https://img.shields.io/npm/v/mirador-canvaslink.png?style=flat-square
 [screenshot]: .docassets/screenshot.png
