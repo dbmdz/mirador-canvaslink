@@ -65,7 +65,7 @@
     "prop-types": "^15.8.1",
     "react": "19.x",
     "react-dom": "19.x",
-    "reselect": "5.1.1"
+    "reselect": "5.2.0"
   },
   "engines": {
     "npm": ">=11.0.0"
