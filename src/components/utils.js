@@ -1,3 +1,29 @@
+const getFacebookLink = (text, canvasLink) => {
+  const url = new URL("/sharer/sharer.php", "https://www.facebook.com");
+  url.searchParams.set("title", text);
+  url.searchParams.set("u", canvasLink);
+  return url.toString();
+};
+
+const getPinterestLink = (text, canvasLink, thumbnailUrl) => {
+  const url = new URL("/pin/create/bookmarklet", "https://pinterest.com");
+  url.searchParams.set("description", text);
+  url.searchParams.set("url", canvasLink);
+  url.searchParams.set("media", thumbnailUrl);
+  return url.toString();
+};
+
+const getXLink = (text, canvasLink) => {
+  const url = new URL("/intent/post", "https://x.com");
+  url.searchParams.set(
+    "text",
+    text.length > 60 ? `${text.substring(0, 60)}...` : text,
+  );
+  url.searchParams.set("url", canvasLink);
+  url.searchParams.set("hashtags", "iiif");
+  return url.toString();
+};
+
 /** Constructs a share link for the given content and provider */
 const getShareLink = (
   attribution,
@@ -14,15 +40,13 @@ const getShareLink = (
     case "envelope":
       return `mailto:?subject=${text}&body=${text}: ${canvasLink}`;
     case "facebook":
-      return `https://www.facebook.com/sharer/sharer.php?title=${text}&u=${canvasLink}`;
+      return getFacebookLink(text, canvasLink);
     case "pinterest":
-      return `http://pinterest.com/pin/create/bookmarklet/?url=${canvasLink}&description=${text}&media=${thumbnailUrl}`;
+      return getPinterestLink(text, canvasLink, thumbnailUrl);
     case "whatsapp":
       return `whatsapp://send?text=${text}: ${canvasLink}`;
     case "x":
-      return `https://x.com/intent/post?text=${
-        text.length > 60 ? `${text.substring(0, 60)}...` : text
-      }&url=${canvasLink}&hashtags=iiif`;
+      return getXLink(text, canvasLink);
     default:
       return null;
   }
