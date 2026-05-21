@@ -14,15 +14,15 @@ const getShareLink = (
     case "envelope":
       return `mailto:?subject=${text}&body=${text}: ${canvasLink}`;
     case "facebook":
-      return `https://www.facebook.com/sharer/sharer.php?title=${text}&u=${canvasLink}`;
+      return `https://www.facebook.com/sharer/sharer.php?title=${encodeURIComponent(text)}&u=${encodeURIComponent(canvasLink)}`;
     case "pinterest":
-      return `http://pinterest.com/pin/create/bookmarklet/?url=${canvasLink}&description=${text}&media=${thumbnailUrl}`;
+      return `https://pinterest.com/pin/create/bookmarklet/?url=${encodeURIComponent(canvasLink)}&description=${encodeURIComponent(text)}&media=${encodeURIComponent(thumbnailUrl)}`;
     case "whatsapp":
       return `whatsapp://send?text=${text}: ${canvasLink}`;
     case "x":
-      return `https://x.com/intent/post?text=${
-        text.length > 60 ? `${text.substring(0, 60)}...` : text
-      }&url=${canvasLink}&hashtags=iiif`;
+      return `https://x.com/intent/post?text=${encodeURIComponent(
+        text.length > 60 ? `${text.substring(0, 60)}...` : text,
+      )}&url=${encodeURIComponent(canvasLink)}&hashtags=iiif`;
     default:
       return null;
   }
