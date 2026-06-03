@@ -59,13 +59,9 @@
     "vite-plugin-dts": "^4.5.4"
   },
   "peerDependencies": {
-    "@mui/icons-material": "^7.3.11",
-    "@mui/material": "^7.3.11",
     "mirador": "4.x",
-    "prop-types": "^15.8.1",
     "react": "19.x",
-    "react-dom": "19.x",
-    "reselect": "5.1.1"
+    "react-dom": "19.x"
   },
   "engines": {
     "npm": ">=11.0.0"
