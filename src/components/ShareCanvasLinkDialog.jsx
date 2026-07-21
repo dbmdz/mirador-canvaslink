@@ -6,7 +6,7 @@ import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogTitle from "@mui/material/DialogTitle";
 import TextField from "@mui/material/TextField";
-import { ScrollIndicatedDialogContent } from "mirador";
+import { cssNs, ScrollIndicatedDialogContent } from "mirador";
 import PropTypes from "prop-types";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -51,7 +51,7 @@ const ShareCanvasLinkDialog = ({
 
   return (
     <Dialog
-      container={document.querySelector(`#${containerId} .mirador-viewer`)}
+      container={document.querySelector(`#${containerId} .${cssNs("viewer")}`)}
       fullWidth
       maxWidth="sm"
       scroll="paper"
