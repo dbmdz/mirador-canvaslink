@@ -4,6 +4,7 @@ export default {
       close: "Schließen",
       copiedToClipboard: "Erfolgreich in die Zwischenablage kopiert",
       copyToClipboard: "In die Zwischenablage kopieren",
+      linkToPage: "Link auf diese Seite",
       noteRights: "Bitte beachten Sie den Rechtehinweis",
       noteRights_plural: "Bitte beachten Sie die Rechtehinweise",
       share: {
@@ -21,6 +22,7 @@ export default {
       close: "Close",
       copiedToClipboard: "Copied successfully to the clipboard",
       copyToClipboard: "Copy to clipboard",
+      linkToPage: "Link to this page",
       noteRights: "Please note the rights statement",
       noteRights_plural: "Please note the rights statements",
       share: {
