@@ -18,14 +18,14 @@ import ShareButton from "./dialog/ShareButton";
 const supportsClipboard = "clipboard" in navigator;
 
 const ShareCanvasLinkDialog = ({
-  canvases,
+  canvases = [],
   config,
   containerId,
   manifestId,
-  visibleCanvases,
-  label,
-  rights,
+  label = "",
+  rights = [],
   updateConfig,
+  visibleCanvases = [],
   windowViewType,
 }) => {
   const { dialogOpen, enabled, showRightsInformation, getCanvasLink } = config;
@@ -122,13 +122,6 @@ const ShareCanvasLinkDialog = ({
       </DialogActions>
     </Dialog>
   );
-};
-
-ShareCanvasLinkDialog.defaultProps = {
-  canvases: [],
-  label: "",
-  rights: [],
-  visibleCanvases: [],
 };
 
 ShareCanvasLinkDialog.propTypes = {
