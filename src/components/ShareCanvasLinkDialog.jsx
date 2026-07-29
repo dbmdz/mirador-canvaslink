@@ -1,5 +1,4 @@
 import Alert from "@mui/material/Alert";
-import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import ButtonGroup from "@mui/material/ButtonGroup";
 import Dialog from "@mui/material/Dialog";
@@ -58,8 +57,8 @@ const ShareCanvasLinkDialog = ({
       open={dialogOpen}
       onClose={closeDialog}
     >
-      <DialogTitle component="h4">
-        <Box fontWeight="fontWeightBold">{t("canvasLink.shareLink")}</Box>
+      <DialogTitle component="h4" fontWeight="fontWeightBold">
+        {t("canvasLink.shareLink")}
       </DialogTitle>
       <ScrollIndicatedDialogContent dividers>
         {copiedToClipboard && (
@@ -87,6 +86,7 @@ const ShareCanvasLinkDialog = ({
             ),
             readOnly: true,
           }}
+          label={t("canvasLink.linkToPage")}
           size="small"
           value={canvasLink}
           variant="outlined"
