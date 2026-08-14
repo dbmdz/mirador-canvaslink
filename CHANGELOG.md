@@ -10,6 +10,10 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) 
 
 - Improved accessibility
 
+### Changed
+
+- Updated dependencies
+
 ## [1.0.3](https://github.com/dbmdz/mirador-canvaslink/releases/tag/1.0.3) - 2026-07-21
 
 ### Fixed
